@@ -339,6 +339,69 @@
             font-style: italic;
         }
 
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(220, 38, 38, 0.4);
+            background: rgba(220, 38, 38, 0.15);
+        }
+
+        .project-card h3 {
+            color: #f3f4f6;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .project-card .project-status {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-status.published {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+        }
+
+        .project-status.prototype {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+
+        .project-status.academic {
+            background: rgba(168, 85, 247, 0.2);
+            color: #a855f7;
+        }
+
+        .project-card p {
+            color: #9ca3af;
+            margin: 0;
+            line-height: 1.6;
+        }
+
         /* Contact Section */
         .contact {
             padding: 6rem 2rem;
@@ -538,27 +601,13 @@
     <!-- Project Section -->
     <section id="project" class="project">
         <div class="project-container">
-            <h2 class="fade-in">Current Project</h2>
-            <div class="project-hero fade-in">
-                <h3 class="project-title">Underworld</h3>
-                <p class="project-subtitle">Action RPG</p>
-                
-                <p class="project-description">
-                    Experience the journey of an undead king awakening in the seventh circle of hell. This dark action RPG combines lightning-fast combat with profound spiritual narrative, inspired by Dante's Divine Comedy and Kardecist literature. Navigate through the underworld's treacherous landscapes while mastering devastating abilities and uncovering the truth behind your eternal imprisonment.
-                </p>
-                
-                <div class="tech-grid">
-                    <div class="tech-tag">Unreal Engine 5</div>
-                    <div class="tech-tag">Ability System</div>
-                    <div class="tech-tag">MVVM</div>
-                    <div class="tech-tag">FluidNinja</div>
-                    <div class="tech-tag">LogicDriverPro</div>
-                </div>
-                
-                <div class="inspiration-box">
-                    <h4>Creative Influences</h4>
-                    <p>Combat inspired by Devil May Cry's precision and intensity. Atmospheric design channeling Diablo's dark fantasy. Narrative depth rooted in spiritual literature and divine poetry. Soundtrack powered by heavy metal energy.</p>
-                </div>
+            <h2 class="fade-in">Projects</h2>
+            <div class="carousel-embed">
+                <iframe id="projects-iframe" 
+                        src="" 
+                        style="width: 100%; height: 700px; border: none; border-radius: 12px;"
+                        loading="lazy">
+                </iframe>
             </div>
         </div>
     </section>
@@ -574,11 +623,11 @@
             <div class="contact-grid fade-in">
                 <div class="contact-card">
                     <h3>Email</h3>
-                    <a href="mailto:v@devilest.com">vt@devilest.com</a>
+                    <a href="mailto:v@devilest.com">v@devilest.com</a>
                 </div>
                 <div class="contact-card">
                     <h3>LinkedIn</h3>
-                    <a href="#" target="_blank">linkedin.com/in/notrealvitor/>
+                    <a href="#" target="_blank">linkedin.com/in/notrealvitor</a>
                 </div>
                 <div class="contact-card">
                     <h3>Instagram</h3>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steam-Style Project Carousel</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .carousel-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .carousel-wrapper {
+            overflow: hidden;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            min-height: 600px;
+        }
+
+        .slide-content {
+            padding: 3rem;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .slide-sidebar {
+            padding: 2rem;
+            background: rgba(220, 38, 38, 0.05);
+            border-left: 1px solid rgba(220, 38, 38, 0.2);
+        }
+
+        .project-header {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(220, 38, 38, 0.3);
+            padding-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 2.8rem;
+            color: #f9fafb;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .project-genre {
+            background: rgba(220, 38, 38, 0.2);
+            color: #dc2626;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-right: 1rem;
+        }
+
+        .project-status {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+
+        .project-status.published { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+        .project-status.prototype { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+        .project-status.academic { background: rgba(168, 85, 247, 0.2); color: #a855f7; }
+
+        .project-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: #d1d5db;
+        }
+
+        .project-features h4 {
+            color: #dc2626;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .project-features ul {
+            list-style: none;
+        }
+
+        .project-features li {
+            padding: 0.7rem 0;
+            color: #d1d5db;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-features li:last-child {
+            border-bottom: none;
+        }
+
+        .project-features strong {
+            color: #dc2626;
+        }
+
+        .info-card {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+        }
+
+        .info-card h4 {
+            color: #dc2626;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(220, 38, 38, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .info-section {
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .info-section:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .info-section h5 {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+
+        .info-section p {
+            color: #f3f4f6;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .tech-tag {
+            background: rgba(220, 38, 38, 0.2);
+            color: #f3f4f6;
+            padding: 0.6rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            text-align: center;
+        }
+
+        /* Navigation */
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-arrow {
+            background: rgba(220, 38, 38, 0.2);
+            color: #dc2626;
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(220, 38, 38, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .carousel-arrow:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .carousel-dot {
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .carousel-dot:hover {
+            background: rgba(220, 38, 38, 0.1);
+            color: #dc2626;
+            border-color: rgba(220, 38, 38, 0.3);
+        }
+
+        .carousel-dot.active {
+            background: #dc2626;
+            color: #fff;
+            border-color: #dc2626;
+            transform: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .carousel-slide {
+                grid-template-columns: 1fr;
+            }
+            
+            .slide-sidebar {
+                border-left: none;
+                border-top: 1px solid rgba(220, 38, 38, 0.2);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide-content {
+                padding: 2rem;
+            }
+            
+            .project-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel-container">
+        <div class="carousel-wrapper">
+            <div class="carousel-slides">
+                <!-- Underworld Slide -->
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Underworld</h3>
+                            <span class="project-genre">Action RPG</span>
+                            <span class="project-status">In Development</span>
+                        </div>
+                        
+                        <div class="project-description">
+                            <p>Experience the journey of an undead king awakening in the seventh circle of hell. This dark action RPG combines lightning-fast combat with profound spiritual narrative, inspired by Dante's Divine Comedy and Kardecist literature.</p>
+                        </div>
+                        
+                        <div class="project-features">
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li><strong>Fast-paced Combat:</strong> Devil May Cry inspired mechanics</li>
+                                <li><strong>Spiritual Narrative:</strong> Deep exploration of classical themes</li>
+                                <li><strong>Ability System:</strong> Master devastating underworld powers</li>
+                                <li><strong>Dark Atmosphere:</strong> Diablo-inspired environments</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="slide-sidebar">
+                        <div class="info-card">
+                            <h4>Project Info</h4>
+                            <div class="info-section">
+                                <h5>Genre</h5>
+                                <p>Action RPG</p>
+                            </div>
+                            <div class="info-section">
+                                <h5>Platform</h5>
+                                <p>PC (Windows)</p>
+                            </div>
+                            <div class="info-section">
+                                <h5>Engine</h5>
+                                <p>Unreal Engine 5</p>
+                            </div>
+                            <div class="info-section">
+                                <h5>Status</h5>
+                                <p>Active Development</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h4>Technology</h4>
+                            <div class="tech-grid">
+                                <span class="tech-tag">UE5</span>
+                                <span class="tech-tag">Ability System</span>
+                                <span class="tech-tag">MVVM</span>
+                                <span class="tech-tag">FluidNinja</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dark Monkey Slide -->
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Dark Monkey</h3>
+                            <span class="project-genre">Action RPG</span>
+                            <span class="project-status published">Published</span>
+                        </div>
+                        
+                        <div class="project-description">
+                            <p>A side-scrolling action RPG following a monkey spirit who becomes possessed by a powerful devil after saving his forest home. Explore themes of sacrifice, corruption, and redemption through atmospheric storytelling.</p>
+                        </div>
+                        
+                        <div class="project-features">
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li><strong>Spirit Possession:</strong> Transform between forms</li>
+                                <li><strong>Environmental Storytelling:</strong> Discover dark secrets</li>
+                                <li><strong>Side-scrolling Combat:</strong> Classic 2D mechanics</li>
+                                <li><strong>Moral Themes:</strong> Sacrifice and corruption</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="slide-sidebar">
+                        <div class="info-card">
+                            <h4>Project Info</h4>
+                            <div class="info-section">
+                                <h5>Genre</h5>
+                                <p>Action RPG, Sidescroller</p>
+                            </div>
+                            <div class="info-section">
+                                <h5>Platform</h5>
+                                <p>PC (Windows)</p>
+                            </div>
+                            <div class="info-section">
+                                <h5>Engine</h5>
+                                <p>Unity</p>
+                            </div>
+                            <div class="info-section">
+                                <h5>Status</h5>
+                                <p>Demo Available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Space Calamity Slide -->
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Space Calamity</h3>
+                            <span class="project-genre">Co-op Survival</span>
+                            <span class="project-status prototype">Prototype</span>
+                        </div>
+                        
+                        <div class="project-description">
+                            <p>A multiplayer survival experience inspired by Lethal Company, set on Mars. Explore abandoned facilities, gather resources, and survive environmental hazards while working with your team.</p>
+                        </div>
+                        
+                        <div class="project-features">
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li><strong>Mars Setting:</strong> Dangerous alien terrain</li>
+                                <li><strong>Team Survival:</strong> 2-4 player cooperative</li>
+                                <li><strong>Resource Management:</strong> Scavenge to survive</li>
+                                <li><strong>Atmospheric Horror:</strong> Tension-filled exploration</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="slide-sidebar">
+                        <div class="info-card">
+                            <h4>Project Info</h4>
+                            <div class="info-section">
+                                <h5>Genre</h5>
+                                <p>Co-op Survival</p>
+                            </div>
+                            <div class="info-section">
+                                <h5>Platform</h5>
+                                <p>PC (Planned)</p>
+                            </div>
+                            <div class="info-section">
+                                <h5>Engine</h5>
+                                <p>Unreal Engine 5</p>
+                            </div>
+                            <div class="info-section">
+                                <h5>Players</h5>
+                                <p>2-4 Cooperative</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Warrior Slide -->
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Business Warrior</h3>
+                            <span class="project-genre">Action RPG</span>
+                            <span class="project-status academic">Academic</span>
+                        </div>
+                        
+                        <div class="project-description">
+                            <p>An experimental action RPG set in business environments. This academic project explores workplace philosophy through gameplay where violence reduces scores, encouraging alternative problem-solving.</p>
+                        </div>
+                        
+                        <div class="project-features">
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li><strong>Innovative Scoring:</strong> Non-violence rewarded</li>
+                                <li><strong>Business Settings:</strong> Offices and corporate spaces</li>
+                                <li><strong>Philosophical Themes:</strong> Workplace culture critique</li>
+                                <li><strong>Roguelike Elements:</strong> Procedural corporate dungeons</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="slide-sidebar">
+                        <div class="info-card">
+                            <h4>Project Info</h4>
+                            <div class="info-section">
+                                <h5>Genre</h5>
+                                <p>Action RPG, Roguelike</p>
+                            </div>
+                            <div class="info-section">
+                                <h5>Platform</h5>
+                                <p>PC (Concept)</p>
+                            </div>
+                            <div class="info-section">
+                                <h5>Type</h5>
+                                <p>Academic Research</p>
+                            </div>
+                            <div class="info-section">
+                                <h5>Status</h5>
+                                <p>Concept Complete</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="carousel-nav">
+            <button class="carousel-arrow prev" onclick="previousSlide()">‹</button>
+            <div class="carousel-dots">
+                <button class="carousel-dot active" onclick="goToSlide(0)" title="Underworld">Underworld</button>
+                <button class="carousel-dot" onclick="goToSlide(1)" title="Dark Monkey">Dark Monkey</button>
+                <button class="carousel-dot" onclick="goToSlide(2)" title="Space Calamity">Space Calamity</button>
+                <button class="carousel-dot" onclick="goToSlide(3)" title="Business Warrior">Business Warrior</button>
+            </div>
+            <button class="carousel-arrow next" onclick="nextSlide()">›</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 4;
+
+        function updateCarousel() {
+            const slideContainer = document.querySelector('.carousel-slides');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const prevBtn = document.querySelector('.carousel-arrow.prev');
+            const nextBtn = document.querySelector('.carousel-arrow.next');
+
+            // Move carousel
+            slideContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+
+            // Update arrow states
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateCarousel();
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateCarousel();
+            }
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Initialize carousel
+        updateCarousel();
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') previousSlide();
+            if (e.key === 'ArrowRight') nextSlide();
+        });
+    </script>
+</body>
+</html>
