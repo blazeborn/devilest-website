@@ -16,25 +16,6 @@
     "tech": ["UE5", "Ability System", "MVVM", "FluidNinja"]
   },
   {
-    "title": "Dark Monkey",
-    "genre": "Action RPG Sidescroller", 
-    "status": "Published",
-    "statusClass": "published",
-    "description": "A side-scrolling action RPG following a monkey spirit who becomes possessed by a powerful devil after saving his forest home. Explore themes of sacrifice, corruption, and redemption through atmospheric storytelling.",
-    "features": [
-      {"title": "Spirit Possession", "desc": "Transform between monkey and devil forms"},
-      {"title": "Environmental Storytelling", "desc": "Discover the forest's dark secrets"},
-      {"title": "Side-scrolling Combat", "desc": "Classic 2D action mechanics"},
-      {"title": "Moral Complexity", "desc": "Explore themes of sacrifice and corruption"}
-    ],
-    "info": {
-      "platform": "PC (Windows)",
-      "engine": "Unity",
-      "status": "Demo Available"
-    },
-    "tech": ["Unity", "2D Animation", "Pixel Art"]
-  },
-  {
     "title": "Space Calamity",
     "genre": "Co-op Survival Action", 
     "status": "Early Prototype",
