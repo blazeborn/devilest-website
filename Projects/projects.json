@@ -3,17 +3,47 @@
     "genre": "Action RPG", 
     "status": "In Development",
     "statusClass": "development",
-    "description": "Experience the journey of an undead king awakening in the seventh circle of hell...",
+    "description": "Experience the journey of an undead king awakening in the seventh circle of hell. This intense action RPG combines philosophical themes with fast-paced combat mechanics inspired by classic demon-fighting games like Devil May Cry and Doom.",
     "features": [
-      {"title": "Fast-paced Combat", "desc": "Devil May Cry inspired mechanics"},
-      {"title": "Spiritual Narrative", "desc": "Deep exploration of classical themes"}
+      {"title": "Fast-paced Combat", "desc": "Devil May Cry inspired mechanics with fluid combos"},
+      {"title": "Spiritual Narrative", "desc": "Deep exploration of classical themes and redemption"},
+      {"title": "Underworld Setting", "desc": "Navigate through the seven circles of hell"},
+      {"title": "Character Progression", "desc": "Unlock abilities as you reclaim your power"}
     ],
     "info": {
       "platform": "PC (Windows)",
       "engine": "Unreal Engine 5",
-      "players": "Single Player"
+      "players": "Single Player",
+      "status": "Active Development"
     },
-    "tech": ["UE5", "Ability System", "MVVM", "FluidNinja"]
+    "tech": ["UE5", "Ability System", "MVVM", "FluidNinja"],
+    "media": [
+      {
+        "type": "screenshot",
+        "path": "https://picsum.photos/800/600?random=1",
+        "title": "Combat System"
+      },
+      {
+        "type": "screenshot",
+        "path": "https://picsum.photos/800/600?random=2", 
+        "title": "Environment Design"
+      },
+      {
+        "type": "gif",
+        "path": "https://picsum.photos/800/600?random=3",
+        "title": "Combat Demo"
+      },
+      {
+        "type": "screenshot",
+        "path": "https://picsum.photos/800/600?random=4",
+        "title": "Character Design"
+      },
+      {
+        "type": "video",
+        "path": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "title": "Gameplay Trailer"
+      }
+    ]
   },
   {
     "title": "Dark Monkey",
