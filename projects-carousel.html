@@ -287,11 +287,38 @@
 
     async function loadProjectData() {
         try {
+            console.log('Attempting to fetch Projects/projects.json...');
             const response = await fetch('Projects/projects.json');
+            
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            
             const projectData = await response.json();
-            projects = [projectData];
+            console.log('Raw JSON data:', projectData);
+            console.log('Is array?', Array.isArray(projectData));
+            console.log('Data type:', typeof projectData);
+            
+            // Ensure we have an array
+            if (Array.isArray(projectData)) {
+                projects = projectData;
+            } else {
+                console.error('Expected array but got:', typeof projectData);
+                throw new Error('JSON data is not an array');
+            }
+            
+            console.log('Projects array:', projects);
+            console.log('Number of projects:', projects.length);
+            
+            if (projects.length > 0) {
+                console.log('First project:', projects[0]);
+                console.log('First project features:', projects[0].features);
+                console.log('Features is array?', Array.isArray(projects[0].features));
+            }
+            
             generateCarousel();
             updateCarousel();
+            
         } catch (error) {
             console.error('Error loading project data:', error);
             loadFallbackData();
@@ -299,37 +326,62 @@
     }
 
     function generateCarousel() {
+        console.log('Generating carousel for', projects.length, 'projects');
         const slidesContainer = document.querySelector('.carousel-slides');
         const dotsContainer = document.querySelector('.carousel-dots');
+        
+        if (!slidesContainer || !dotsContainer) {
+            console.error('Carousel containers not found!');
+            return;
+        }
         
         slidesContainer.innerHTML = '';
         dotsContainer.innerHTML = '';
 
         projects.forEach((project, index) => {
-            const slide = createSlide(project);
-            slidesContainer.appendChild(slide);
-            const dot = createDot(project, index);
-            dotsContainer.appendChild(dot);
+            console.log(`Creating slide ${index} for:`, project.title);
+            try {
+                const slide = createSlide(project);
+                slidesContainer.appendChild(slide);
+                const dot = createDot(project, index);
+                dotsContainer.appendChild(dot);
+            } catch (error) {
+                console.error(`Error creating slide ${index}:`, error);
+                console.error('Project data:', project);
+            }
         });
     }
 
     function createSlide(project) {
+        console.log('Creating slide for project:', project);
+        
+        // Check if required properties exist
+        if (!project.features || !Array.isArray(project.features)) {
+            console.error('Project features is not an array:', project.features);
+            project.features = []; // Fallback to empty array
+        }
+        
+        if (!project.info || typeof project.info !== 'object') {
+            console.error('Project info is not an object:', project.info);
+            project.info = {}; // Fallback to empty object
+        }
+        
         const slide = document.createElement('div');
         slide.className = 'carousel-slide';
         slide.innerHTML = `
             <div class="slide-content">
                 <div class="project-header">
-                    <h3 class="project-title">${project.title}</h3>
-                    <span class="project-genre">${project.genre}</span>
-                    <span class="project-status">${project.status}</span>
+                    <h3 class="project-title">${project.title || 'Untitled'}</h3>
+                    <span class="project-genre">${project.genre || 'Unknown'}</span>
+                    <span class="project-status">${project.status || 'Unknown'}</span>
                 </div>
                 <div class="project-description">
-                    <p>${project.description}</p>
+                    <p>${project.description || 'No description available.'}</p>
                 </div>
                 <div class="project-features">
                     <h4>Key Features</h4>
                     <ul>
-                        ${project.features.map(feature => `<li><strong>${feature.title}:</strong> ${feature.desc}</li>`).join('')}
+                        ${project.features.map(feature => `<li><strong>${feature.title || 'Feature'}:</strong> ${feature.desc || 'No description'}</li>`).join('')}
                     </ul>
                 </div>
             </div>
@@ -339,11 +391,11 @@
                     ${Object.entries(project.info).map(([key, value]) => `
                         <div class="info-section">
                             <h5>${key.charAt(0).toUpperCase() + key.slice(1)}</h5>
-                            <p>${value}</p>
+                            <p>${value || 'Not specified'}</p>
                         </div>
                     `).join('')}
                 </div>
-                ${project.tech ? `
+                ${project.tech && Array.isArray(project.tech) ? `
                     <div class="info-card">
                         <h4>Technology</h4>
                         <div class="tech-grid">
@@ -359,7 +411,7 @@
     function createDot(project, index) {
         const dot = document.createElement('button');
         dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
-        dot.textContent = project.title;
+        dot.textContent = project.title || `Project ${index + 1}`;
         dot.onclick = () => goToSlide(index);
         return dot;
     }
@@ -400,6 +452,7 @@
     }
 
     function loadFallbackData() {
+        console.log('Loading fallback data...');
         projects = [{
             title: "Underworld",
             genre: "Action RPG",
