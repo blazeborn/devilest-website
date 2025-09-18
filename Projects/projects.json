@@ -1,8 +1,13 @@
 [{
-    "title": "Underworld",
+    "title": "Underworld [TESTING!]",
     "genre": "Action RPG", 
     "status": "In Development",
     "statusClass": "development",
+    "cta": {
+      "text": "Wishlist Now[TESTING!!]",
+      "url": "https://store.epicgames.com/en-US/p/jurassic-park-survival-256314",
+      "color": "#dc2626"
+    },
     "description": "Experience the journey of an undead king awakening in the seventh circle of hell. This intense action RPG combines philosophical themes with fast-paced combat mechanics inspired by classic demon-fighting games like Devil May Cry and Doom.",
     "features": [
       {"title": "Fast-paced Combat", "desc": "Devil May Cry inspired mechanics with fluid combos"},
@@ -19,12 +24,12 @@
     "tech": ["UE5", "Ability System", "MVVM", "FluidNinja"],
     "media": [
       {
-        "type": "screenshot",
+        "type": "img",
         "path": "https://picsum.photos/800/600?random=1",
         "title": "Combat System"
       },
       {
-        "type": "screenshot",
+        "type": "img",
         "path": "https://picsum.photos/800/600?random=2", 
         "title": "Environment Design"
       },
@@ -34,13 +39,14 @@
         "title": "Combat Demo"
       },
       {
-        "type": "screenshot",
+        "type": "img",
         "path": "https://picsum.photos/800/600?random=4",
         "title": "Character Design"
       },
       {
         "type": "video",
         "path": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "thumbnail": "https://picsum.photos/112/64?random=video1",
         "title": "Gameplay Trailer"
       }
     ]
