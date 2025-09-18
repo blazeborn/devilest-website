@@ -605,7 +605,7 @@
             <div class="carousel-embed">
                 <iframe id="projects-iframe"
                         src=""
-                        style="width: 100%; height: 700px; border: none; border-radius: 12px;"
+                        style="width: 100%; height: 850px; border: none;"
                         loading="lazy">
                 </iframe>
             </div>
@@ -700,7 +700,22 @@
         window.addEventListener('load', () => {
         const projectsIframe = document.getElementById('projects-iframe');
         projectsIframe.src = 'projects-carousel.html'; 
-         });
+        
+        projectsIframe.onload = function() {
+            // Add a small delay to ensure carousel content is generated
+            setTimeout(() => {
+                try {
+                    const iframeDoc = projectsIframe.contentDocument || projectsIframe.contentWindow.document;
+                    const height = iframeDoc.body.scrollHeight;
+                    console.log('Calculated height:', height); // Debug log
+                    projectsIframe.style.height = height + 'px';
+                } catch (e) {
+                    console.log('Auto-resize failed, using fallback height');
+                    projectsIframe.style.height = '800px'; // Fallback
+                }
+            }, 500); // 500ms delay
+        };
+    });
 
     </script>
 </body>
