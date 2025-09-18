@@ -154,17 +154,18 @@
         .carousel-slide {
             min-width: 100%;
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: var(--grid-gap);
-            padding: var(--spacing-xl);
-            min-height: calc(var(--unit) * 100); /* 800px */
+            grid-template-columns: minmax(300px, 2fr) minmax(250px, 1fr);
+            gap: clamp(var(--spacing-md), 4vw, var(--grid-gap));
+            padding: clamp(var(--spacing-md), 3vw, var(--spacing-xl));
+            min-height: auto;
         }
 
         /* Left Column - Content */
         .slide-content {
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-xl);
+            gap: clamp(var(--spacing-md), 3vw, var(--spacing-xl));
+            min-width: 0;
         }
 
         /* Project Header - Baseline Aligned */
@@ -228,7 +229,8 @@
         .main-media-container {
             position: relative;
             width: 100%;
-            height: calc(var(--unit) * 50); /* 400px */
+            aspect-ratio: 16/9;
+            max-height: 400px;
             background: var(--bg-tertiary);
             display: flex;
             align-items: center;
@@ -357,17 +359,18 @@
             background: rgba(0, 0, 0, 0.6);
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius);
-            padding: var(--spacing-xl);
+            padding: clamp(var(--spacing-md), 3vw, var(--spacing-xl));
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-xl);
+            gap: clamp(var(--spacing-md), 2vw, var(--spacing-xl));
+            min-width: 0;
         }
 
         .info-section {
             background: rgba(0, 0, 0, 0.4);
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius);
-            padding: var(--spacing-lg);
+            padding: clamp(var(--spacing-sm), 2vw, var(--spacing-lg));
         }
 
         .info-section h4 {
@@ -448,74 +451,108 @@
             text-align: center;
         }
 
-        /* Responsive Breakpoints - Professional */
+        /* Responsive Breakpoints - Fluid Design */
         @media (max-width: 1024px) {
             .carousel-slide {
                 grid-template-columns: 1fr;
-                gap: var(--spacing-lg);
-                padding: var(--spacing-lg);
+                gap: clamp(var(--spacing-md), 4vw, var(--spacing-lg));
             }
             
-            .main-media-container {
-                height: calc(var(--unit) * 40); /* 320px */
+            .slide-sidebar {
+                /* order: -1;  */
             }
         }
 
         @media (max-width: 768px) {
             .carousel-container {
-                padding: var(--spacing-md);
+                padding: clamp(var(--spacing-sm), 3vw, var(--spacing-md));
             }
             
             .carousel-nav {
-                gap: var(--spacing-sm);
-                margin-bottom: var(--spacing-md);
+                gap: clamp(var(--spacing-xs), 2vw, var(--spacing-sm));
+                margin-bottom: clamp(var(--spacing-sm), 3vw, var(--spacing-md));
             }
 
             .carousel-arrow {
-                width: calc(var(--unit) * 5); /* Smaller on mobile - 40px */
-                height: calc(var(--unit) * 5);
-                font-size: var(--text-base);
-            }
-
-            .carousel-dots {
-                gap: var(--spacing-xs);
+                width: clamp(32px, 8vw, 40px);
+                height: clamp(32px, 8vw, 40px);
+                font-size: clamp(var(--text-sm), 4vw, var(--text-base));
             }
 
             .carousel-dot {
-                padding: var(--spacing-xs) var(--spacing-sm);
-                font-size: var(--text-xs);
-                border-radius: calc(var(--spacing-xs) + 2px);
-            }
-            
-            .carousel-slide {
-                padding: var(--spacing-md);
-                grid-template-columns: 1fr;
-                gap: var(--spacing-md);
-                min-height: auto;
+                padding: clamp(4px, 1vw, 8px) clamp(8px, 2vw, 16px);
+                font-size: clamp(10px, 2.5vw, 12px);
+                border-radius: 4px;
             }
             
             .project-title {
-                font-size: var(--text-3xl);
+                font-size: clamp(1.5rem, 6vw, 2rem);
+                line-height: 1.2;
+            }
+
+            .project-badges {
+                flex-wrap: wrap;
+                gap: clamp(4px, 1vw, 8px);
+            }
+
+            .project-genre,
+            .project-status {
+                padding: clamp(4px, 1vw, 8px) clamp(8px, 2vw, 12px);
+                font-size: clamp(10px, 2.5vw, 14px);
+            }
+
+            .media-thumbnails {
+                padding: clamp(8px, 2vw, 16px);
+                gap: clamp(4px, 1vw, 8px);
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .media-thumb {
+                width: clamp(60px, 15vw, 80px);
+                height: clamp(36px, 9vw, 48px);
             }
 
             .tech-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                gap: clamp(4px, 1vw, 8px);
             }
 
-            .main-media-container {
-                height: calc(var(--unit) * 32); /* Smaller on mobile - 256px */
+            .tech-tag {
+                padding: clamp(4px, 1vw, 8px);
+                font-size: clamp(10px, 2.5vw, 12px);
+            }
+
+            .info-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2px;
+            }
+
+            .info-value {
+                text-align: left;
+                font-weight: 500;
             }
         }
 
         @media (max-width: 480px) {
+            .carousel-slide {
+                padding: clamp(8px, 4vw, 16px);
+            }
+            
             .project-badges {
                 flex-direction: column;
                 align-items: flex-start;
             }
 
-            .media-thumbnails {
+            .carousel-dots {
                 flex-wrap: wrap;
                 justify-content: center;
+            }
+
+            .carousel-dot {
+                min-width: auto;
+                text-align: center;
             }
         }
     </style>
