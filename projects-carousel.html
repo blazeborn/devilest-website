@@ -259,6 +259,13 @@
             font-size: var(--text-sm);
             color: var(--accent-primary);
             font-weight: 600;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .media-overlay.fade-out {
+        opacity: 0;
         }
 
         /* Thumbnail Grid - Perfect Alignment */
@@ -536,6 +543,10 @@
         }
 
         @media (max-width: 480px) {
+            .carousel-container {
+                padding: 0;
+            }
+
             .carousel-slide {
                 padding: clamp(8px, 4vw, 16px);
             }
@@ -604,18 +615,25 @@
         }
 
         function generateCarousel() {
-            const slidesContainer = document.querySelector('.carousel-slides');
-            const dotsContainer = document.querySelector('.carousel-dots');
-            
-            slidesContainer.innerHTML = '';
-            dotsContainer.innerHTML = '';
+        const slidesContainer = document.querySelector('.carousel-slides');
+        const dotsContainer = document.querySelector('.carousel-dots');
+        
+        slidesContainer.innerHTML = '';
+        dotsContainer.innerHTML = '';
 
+        projects.forEach((project, index) => {
+            const slide = createSlide(project, index);
+            slidesContainer.appendChild(slide);
+            const dot = createDot(project, index);
+            dotsContainer.appendChild(dot);
+        });
+        
+        // Add initial fade timers for all overlays
+        setTimeout(() => {
             projects.forEach((project, index) => {
-                const slide = createSlide(project, index);
-                slidesContainer.appendChild(slide);
-                const dot = createDot(project, index);
-                dotsContainer.appendChild(dot);
+            startFadeTimer(index);
             });
+        }, 100);
         }
 
         function createSlide(project, projectIndex) {
@@ -703,7 +721,7 @@
             const thumbnailsHtml = project.media.map((media, index) => {
                 const typeLabel = media.type.substring(0, 3).toUpperCase();
                 const isActive = index === 0 ? 'active' : '';
-                const thumbSrc = media.thumbnail || media.path; // Use thumbnail if available, fallback to path
+                const thumbSrc = media.thumbnail || media.path; // ADD THIS LINE BACK
                 
                 return `<div class="media-thumb ${isActive}" onclick="switchMedia(${projectIndex}, ${index})">
                     <img src="${thumbSrc}" alt="${media.title}">
@@ -713,9 +731,11 @@
 
             return `
                 <div class="media-showcase">
-                    <div class="main-media-container" id="media-display-${projectIndex}">
+                    <div class="main-media-container" id="media-display-${projectIndex}"
+                        onmouseenter="showOverlay(${projectIndex})" 
+                        onmouseleave="startFadeTimer(${projectIndex})">
                         ${createMediaDisplay(firstMedia)}
-                        <div class="media-overlay">${firstMedia.title} (1 of ${project.media.length})</div>
+                        <div class="media-overlay" id="overlay-${projectIndex}">${firstMedia.title} (1 of ${project.media.length})</div>
                     </div>
                     <div class="media-thumbnails">
                         ${thumbnailsHtml}
@@ -753,6 +773,8 @@
             thumbnails.forEach((thumb, i) => {
                 thumb.classList.toggle('active', i === mediaIndex);
             });
+            // Reset and start fade timer for overlay
+            startFadeTimer(projectIndex);
         }
 
         function createDot(project, index) {
@@ -840,6 +862,22 @@
             if (e.key === 'ArrowLeft') previousSlide();
             if (e.key === 'ArrowRight') nextSlide();
         });
+
+        let fadeTimers = {};
+
+        function showOverlay(projectIndex) {
+            clearTimeout(fadeTimers[projectIndex]);
+            const overlay = document.getElementById(`overlay-${projectIndex}`);
+            if (overlay) overlay.classList.remove('fade-out');
+        }
+
+        function startFadeTimer(projectIndex) {
+            fadeTimers[projectIndex] = setTimeout(() => {
+                const overlay = document.getElementById(`overlay-${projectIndex}`);
+                if (overlay) overlay.classList.add('fade-out');
+            }, 2000);
+        }
+
     </script>
 </body>
 </html>
