@@ -3,20 +3,12 @@
     "genre": "Survival Roguelike", 
     "status": "In Development",
     "statusClass": "development",
-    "cta": [
-      {
-        "text": "Coming to Epic Games Store",
-        "url": "https://store.epicgames.com/",
-        "color": "#ff6b35",
-        "primary": true
-      },
-      {
-        "text": "Wishlist on Steam",
-        "url": "https://store.steampowered.com/",
-        "color": "#1b2838",
-        "primary": false
-      }
-    ]
+    "cta":   {
+      "text": "Coming to Epic Games Store",
+      "url": "https://store.epicgames.com/",
+      "color": "#ff6b35",
+      "primary": true
+    },
     "description": "Rise up as a fallen hero in the frozen depths of the underworld. Command armies of the dead while channeling spiritual powers to fight through waves of tormented souls across cursed realms. Harvest essence from fallen enemies to grow stronger each run, unlock devastating abilities, spells, and weapons as you ascend from forgotten wretch to become the Underworld Overlord. Based on authentic spiritual literature, experience an afterlife unlike any game before.",
     "features": [
       {"title": "Necromantic Army Building", "desc": "Raise and command fallen enemies in strategic combat"},
