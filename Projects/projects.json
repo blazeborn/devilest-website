@@ -16,16 +16,16 @@
       {"title": "Massive Power", "desc": "Start weak and become unstoppable!"},
       {"title": "Roguelike Progression", "desc": "Endless replayability with new builds and strategies each run"},
       {"title": "Domination Rankings", "desc": "Prove your mastery and claim rewards worthy of an overlord"},  
-      {"title": "Spiritual Realm", "desc": "Afterlife grounded on spiritual literature"}
+      {"title": "Damned Realms", "desc": "Uncover the dark mysteries of the spiritual underworld"}
     ],
     "info": {
-      "platform": "PC (Windows) - Steam",
+      "platform": "PC (Windows)",
       "engine": "Unreal Engine 5",
       "players": "Single Player",
-      "status": "Active Development - Early Access Jan 2026",
-      "price": "$10 USD"
+      "status": "Active Development",
+      "price": "$5 USD"
     },
-    "tech": ["UE5", "GAS (Gameplay Ability System)", "MVVM", "Dynamic Enemy Spawning", "Performance Optimization"],
+    "tech": ["UE5", "GAS", "MVVM", "Ninja Tools", "Logic Driver Pro"],
     "media": [
       {
         "type": "img",
