@@ -9,13 +9,14 @@
       "color": "#ff6b35",
       "primary": true
     },
-    "description": "Rise up as a fallen hero in the frozen depths of the underworld. Command armies of the dead while channeling spiritual powers to fight through waves of tormented souls across cursed realms. Harvest essence from fallen enemies to grow stronger each run, unlock devastating abilities, spells, and weapons as you ascend from forgotten wretch to become the Underworld Overlord. Based on authentic spiritual literature, experience an afterlife unlike any game before.",
+    "description": "Rise up as a fallen hero in the frozen depths of the underworld. Command armies of dead while channeling spiritual powers to fight through waves of tormented souls across cursed realms. Harvest essence from fallen enemies to grow stronger each run, unlock devastating abilities, spells, and weapons as you ascend from forgotten wretch to become the Underworld Overlord. Based on authentic spiritual literature, experience an afterlife unlike any game before.",
     "features": [
-      {"title": "Necromantic Army Building", "desc": "Raise and command fallen enemies in strategic combat"},
-      {"title": "Authentic Spiritual Realm", "desc": "Culturally grounded afterlife based on Brazilian spiritual literature"},
-      {"title": "Session Mastery System", "desc": "Arcade-style scoring with meta-progression rewards"},
-      {"title": "50-Level Power Growth", "desc": "Complete character evolution within single runs"},
-      {"title": "UE5 Performance Innovation", "desc": "High-fidelity graphics optimized for horde gameplay"}
+      {"title": "UE5 Powered", "desc": "Stunning visuals with optimized performance"},
+      {"title": "Army Building", "desc": "Raise and command fallen enemies in strategic combat"},
+      {"title": "Massive Power", "desc": "Start weak and become unstoppable!"},
+      {"title": "Roguelike Progression", "desc": "Endless replayability with new builds and strategies each run"},
+      {"title": "Domination Rankings", "desc": "Prove your mastery and claim rewards worthy of an overlord"},  
+      {"title": "Spiritual Realm", "desc": "Afterlife grounded on spiritual literature"}
     ],
     "info": {
       "platform": "PC (Windows) - Steam",
@@ -53,64 +54,5 @@
         "title": "Technical Showcase Trailer"
       }
     ]
-}
-  // ,{
-  //   "title": "Dark Monkey",
-  //   "genre": "Action RPG Sidescroller", 
-  //   "status": "Published",
-  //   "statusClass": "published",
-  //   "description": "A side-scrolling action RPG following a monkey spirit who becomes possessed by a powerful devil after saving his forest home. Explore themes of sacrifice, corruption, and redemption through atmospheric storytelling.",
-  //   "features": [
-  //     {"title": "Spirit Possession", "desc": "Transform between monkey and devil forms"},
-  //     {"title": "Environmental Storytelling", "desc": "Discover the forest's dark secrets"},
-  //     {"title": "Side-scrolling Combat", "desc": "Classic 2D action mechanics"},
-  //     {"title": "Moral Complexity", "desc": "Explore themes of sacrifice and corruption"}
-  //   ],
-  //   "info": {
-  //     "platform": "PC (Windows)",
-  //     "engine": "Unity",
-  //     "status": "Demo Available"
-  //   },
-  //   "tech": ["Unity", "2D Animation", "Pixel Art"]
-  // },
-  // {
-  //   "title": "Space Calamity",
-  //   "genre": "Co-op Survival Action", 
-  //   "status": "Early Prototype",
-  //   "statusClass": "prototype",
-  //   "description": "A multiplayer survival experience inspired by Lethal Company, set on the hostile surface of Mars. Explore abandoned facilities, gather resources, and survive against environmental hazards while working with your team.",
-  //   "features": [
-  //     {"title": "Mars Setting", "desc": "Explore the red planet's dangerous terrain"},
-  //     {"title": "Team Survival", "desc": "Cooperative gameplay for 2-4 players"},
-  //     {"title": "Resource Management", "desc": "Scavenge and survive in hostile environments"},
-  //     {"title": "Atmospheric Horror", "desc": "Tension-filled exploration and encounters"}
-  //   ],
-  //   "info": {
-  //     "platform": "PC (Planned)",
-  //     "engine": "Unreal Engine 5",
-  //     "status": "Early Development",
-  //     "players": "2-4 Cooperative"
-  //   },
-  //   "tech": ["UE5", "Lyra Template", "Multiplayer Framework"]
-  // },
-  // {
-  //   "title": "Business Warrior",
-  //   "genre": "Action RPG Roguelike", 
-  //   "status": "Academic Project",
-  //   "statusClass": "academic",
-  //   "description": "An experimental action RPG set in randomly generated business environments. This academic project explores workplace philosophy through gameplay where violence reduces scores, encouraging alternative problem-solving approaches.",
-  //   "features": [
-  //     {"title": "Innovative Scoring", "desc": "Violence reduces points, peaceful solutions rewarded"},
-  //     {"title": "Business Settings", "desc": "Fight through offices, hotels, construction sites"},
-  //     {"title": "Philosophical Themes", "desc": "Explore workplace culture and human values"},
-  //     {"title": "Roguelike Elements", "desc": "Procedurally generated corporate dungeons"}
-  //   ],
-  //   "info": {
-  //     "platform": "PC (Concept)",
-  //     "type": "Academic Research Project",
-  //     "focus": "Game Design Theory",
-  //     "status": "Concept Complete"
-  //   },
-  //   "tech": ["Research", "Theory", "Design Document"]
-  // }
+  }
 ]
