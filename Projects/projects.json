@@ -1,113 +1,124 @@
 [{
-    "title": "Underworld [TESTING!]",
-    "genre": "Action RPG", 
+    "title": "Underworld Overlord",
+    "genre": "Survival Roguelike", 
     "status": "In Development",
     "statusClass": "development",
-    "cta": {
-      "text": "Wishlist Now[TESTING!!]",
-      "url": "https://store.epicgames.com/en-US/p/jurassic-park-survival-256314",
-      "color": "#dc2626"
-    },
-    "description": "Experience the journey of an undead king awakening in the seventh circle of hell. This intense action RPG combines philosophical themes with fast-paced combat mechanics inspired by classic demon-fighting games like Devil May Cry and Doom.",
+    "cta": [
+      {
+        "text": "Coming to Epic Games Store",
+        "url": "https://store.epicgames.com/",
+        "color": "#ff6b35",
+        "primary": true
+      },
+      {
+        "text": "Wishlist on Steam",
+        "url": "https://store.steampowered.com/",
+        "color": "#1b2838",
+        "primary": false
+      }
+    ]
+    "description": "Rise up as a fallen hero in the frozen depths of the underworld. Command armies of the dead while channeling spiritual powers to fight through waves of tormented souls across cursed realms. Harvest essence from fallen enemies to grow stronger each run, unlock devastating abilities, spells, and weapons as you ascend from forgotten wretch to become the Underworld Overlord. Based on authentic spiritual literature, experience an afterlife unlike any game before.",
     "features": [
-      {"title": "Fast-paced Combat", "desc": "Devil May Cry inspired mechanics with fluid combos"},
-      {"title": "Spiritual Narrative", "desc": "Deep exploration of classical themes and redemption"},
-      {"title": "Underworld Setting", "desc": "Navigate through the seven circles of hell"},
-      {"title": "Character Progression", "desc": "Unlock abilities as you reclaim your power"}
+      {"title": "Necromantic Army Building", "desc": "Raise and command fallen enemies in strategic combat"},
+      {"title": "Authentic Spiritual Realm", "desc": "Culturally grounded afterlife based on Brazilian spiritual literature"},
+      {"title": "Session Mastery System", "desc": "Arcade-style scoring with meta-progression rewards"},
+      {"title": "50-Level Power Growth", "desc": "Complete character evolution within single runs"},
+      {"title": "UE5 Performance Innovation", "desc": "High-fidelity graphics optimized for horde gameplay"}
     ],
     "info": {
-      "platform": "PC (Windows)",
+      "platform": "PC (Windows) - Steam",
       "engine": "Unreal Engine 5",
       "players": "Single Player",
-      "status": "Active Development"
+      "status": "Active Development - Early Access Jan 2026",
+      "price": "$10 USD"
     },
-    "tech": ["UE5", "Ability System", "MVVM", "FluidNinja"],
+    "tech": ["UE5", "GAS (Gameplay Ability System)", "MVVM", "Dynamic Enemy Spawning", "Performance Optimization"],
     "media": [
       {
         "type": "img",
         "path": "https://picsum.photos/800/600?random=1",
-        "title": "Combat System"
+        "title": "Late-Game Underworld Overlord"
       },
       {
         "type": "img",
         "path": "https://picsum.photos/800/600?random=2", 
-        "title": "Environment Design"
+        "title": "Spiritual Realm Environment"
       },
       {
         "type": "gif",
         "path": "https://picsum.photos/800/600?random=3",
-        "title": "Combat Demo"
+        "title": "Army Building Demo"
       },
       {
         "type": "img",
         "path": "https://picsum.photos/800/600?random=4",
-        "title": "Character Design"
+        "title": "Powered-Up Hero Build"
       },
       {
         "type": "video",
         "path": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         "thumbnail": "https://picsum.photos/112/64?random=video1",
-        "title": "Gameplay Trailer"
+        "title": "Technical Showcase Trailer"
       }
     ]
-  },
-  {
-    "title": "Dark Monkey",
-    "genre": "Action RPG Sidescroller", 
-    "status": "Published",
-    "statusClass": "published",
-    "description": "A side-scrolling action RPG following a monkey spirit who becomes possessed by a powerful devil after saving his forest home. Explore themes of sacrifice, corruption, and redemption through atmospheric storytelling.",
-    "features": [
-      {"title": "Spirit Possession", "desc": "Transform between monkey and devil forms"},
-      {"title": "Environmental Storytelling", "desc": "Discover the forest's dark secrets"},
-      {"title": "Side-scrolling Combat", "desc": "Classic 2D action mechanics"},
-      {"title": "Moral Complexity", "desc": "Explore themes of sacrifice and corruption"}
-    ],
-    "info": {
-      "platform": "PC (Windows)",
-      "engine": "Unity",
-      "status": "Demo Available"
-    },
-    "tech": ["Unity", "2D Animation", "Pixel Art"]
-  },
-  {
-    "title": "Space Calamity",
-    "genre": "Co-op Survival Action", 
-    "status": "Early Prototype",
-    "statusClass": "prototype",
-    "description": "A multiplayer survival experience inspired by Lethal Company, set on the hostile surface of Mars. Explore abandoned facilities, gather resources, and survive against environmental hazards while working with your team.",
-    "features": [
-      {"title": "Mars Setting", "desc": "Explore the red planet's dangerous terrain"},
-      {"title": "Team Survival", "desc": "Cooperative gameplay for 2-4 players"},
-      {"title": "Resource Management", "desc": "Scavenge and survive in hostile environments"},
-      {"title": "Atmospheric Horror", "desc": "Tension-filled exploration and encounters"}
-    ],
-    "info": {
-      "platform": "PC (Planned)",
-      "engine": "Unreal Engine 5",
-      "status": "Early Development",
-      "players": "2-4 Cooperative"
-    },
-    "tech": ["UE5", "Lyra Template", "Multiplayer Framework"]
-  },
-  {
-    "title": "Business Warrior",
-    "genre": "Action RPG Roguelike", 
-    "status": "Academic Project",
-    "statusClass": "academic",
-    "description": "An experimental action RPG set in randomly generated business environments. This academic project explores workplace philosophy through gameplay where violence reduces scores, encouraging alternative problem-solving approaches.",
-    "features": [
-      {"title": "Innovative Scoring", "desc": "Violence reduces points, peaceful solutions rewarded"},
-      {"title": "Business Settings", "desc": "Fight through offices, hotels, construction sites"},
-      {"title": "Philosophical Themes", "desc": "Explore workplace culture and human values"},
-      {"title": "Roguelike Elements", "desc": "Procedurally generated corporate dungeons"}
-    ],
-    "info": {
-      "platform": "PC (Concept)",
-      "type": "Academic Research Project",
-      "focus": "Game Design Theory",
-      "status": "Concept Complete"
-    },
-    "tech": ["Research", "Theory", "Design Document"]
-  }
+}
+  // ,{
+  //   "title": "Dark Monkey",
+  //   "genre": "Action RPG Sidescroller", 
+  //   "status": "Published",
+  //   "statusClass": "published",
+  //   "description": "A side-scrolling action RPG following a monkey spirit who becomes possessed by a powerful devil after saving his forest home. Explore themes of sacrifice, corruption, and redemption through atmospheric storytelling.",
+  //   "features": [
+  //     {"title": "Spirit Possession", "desc": "Transform between monkey and devil forms"},
+  //     {"title": "Environmental Storytelling", "desc": "Discover the forest's dark secrets"},
+  //     {"title": "Side-scrolling Combat", "desc": "Classic 2D action mechanics"},
+  //     {"title": "Moral Complexity", "desc": "Explore themes of sacrifice and corruption"}
+  //   ],
+  //   "info": {
+  //     "platform": "PC (Windows)",
+  //     "engine": "Unity",
+  //     "status": "Demo Available"
+  //   },
+  //   "tech": ["Unity", "2D Animation", "Pixel Art"]
+  // },
+  // {
+  //   "title": "Space Calamity",
+  //   "genre": "Co-op Survival Action", 
+  //   "status": "Early Prototype",
+  //   "statusClass": "prototype",
+  //   "description": "A multiplayer survival experience inspired by Lethal Company, set on the hostile surface of Mars. Explore abandoned facilities, gather resources, and survive against environmental hazards while working with your team.",
+  //   "features": [
+  //     {"title": "Mars Setting", "desc": "Explore the red planet's dangerous terrain"},
+  //     {"title": "Team Survival", "desc": "Cooperative gameplay for 2-4 players"},
+  //     {"title": "Resource Management", "desc": "Scavenge and survive in hostile environments"},
+  //     {"title": "Atmospheric Horror", "desc": "Tension-filled exploration and encounters"}
+  //   ],
+  //   "info": {
+  //     "platform": "PC (Planned)",
+  //     "engine": "Unreal Engine 5",
+  //     "status": "Early Development",
+  //     "players": "2-4 Cooperative"
+  //   },
+  //   "tech": ["UE5", "Lyra Template", "Multiplayer Framework"]
+  // },
+  // {
+  //   "title": "Business Warrior",
+  //   "genre": "Action RPG Roguelike", 
+  //   "status": "Academic Project",
+  //   "statusClass": "academic",
+  //   "description": "An experimental action RPG set in randomly generated business environments. This academic project explores workplace philosophy through gameplay where violence reduces scores, encouraging alternative problem-solving approaches.",
+  //   "features": [
+  //     {"title": "Innovative Scoring", "desc": "Violence reduces points, peaceful solutions rewarded"},
+  //     {"title": "Business Settings", "desc": "Fight through offices, hotels, construction sites"},
+  //     {"title": "Philosophical Themes", "desc": "Explore workplace culture and human values"},
+  //     {"title": "Roguelike Elements", "desc": "Procedurally generated corporate dungeons"}
+  //   ],
+  //   "info": {
+  //     "platform": "PC (Concept)",
+  //     "type": "Academic Research Project",
+  //     "focus": "Game Design Theory",
+  //     "status": "Concept Complete"
+  //   },
+  //   "tech": ["Research", "Theory", "Design Document"]
+  // }
 ]
