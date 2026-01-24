@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "description": "Game Studio crafting meaningful action experiences with rock n roll attitude. Currently developing an underworld adventure that combines philosophical themes with intense combat mechanics."
+  },
+  "about": {
+    "title": "The Studio",
+    "vision": {
+      "title": "Focus & Vision",
+      "paragraphs": [
+        "Devilest emerged from a lifelong passion for demon-fighting games like Doom, Devil May Cry, Diablo, and dark fantasy worlds. The studio explores the intersection of technology and spiritual themes, creating games that challenge players both mechanically and philosophically through meaningful action experiences.",
+        "Founded by Vitor Silvestre, a Brazilian with 10+ years of game development, formal game design education, AAA background, and guitar playing to create meaningful action games with rock n roll attitude."
+      ]
+    },
+    "credentials": {
+      "title": "Development Foundation",
+      "items": [
+        "Bachelor's Degree in Game Design",
+        "Tech UI - Fortnite (Epic Games)",
+        "Combat Designer (Warner Bros Games)",
+        "Brazilian Game Development Background"
+      ]
+    }
+  },
+  "contact": {
+    "title": "Connect",
+    "description": "Interested in publishing opportunities, development collaboration, or following the project's progress?",
+    "cards": [
+      {
+        "title": "Email",
+        "type": "link",
+        "value": "v@devilest.com",
+        "href": "mailto:v@devilest.com"
+      },
+      {
+        "title": "LinkedIn",
+        "type": "link",
+        "value": "linkedin.com/in/notrealvitor",
+        "href": "#"
+      },
+      {
+        "title": "Instagram",
+        "type": "link",
+        "value": "@devilestcorp",
+        "href": "#"
+      },
+      {
+        "title": "Location",
+        "type": "text",
+        "value": "Brazil 🇧🇷"
+      }
+    ]
+  }
+}
