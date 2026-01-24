@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Carousel - Professional Grid</title>
+    <style>
+        :root {
+            /* 8px Grid System */
+            --unit: 8px;
+            --spacing-xs: calc(var(--unit) * 1); /* 8px */
+            --spacing-sm: calc(var(--unit) * 2); /* 16px */
+            --spacing-md: calc(var(--unit) * 3); /* 24px */
+            --spacing-lg: calc(var(--unit) * 4); /* 32px */
+            --spacing-xl: calc(var(--unit) * 6); /* 48px */
+            --spacing-xxl: calc(var(--unit) * 8); /* 64px */
+            
+            /* Typography Scale */
+            --text-xs: 0.75rem;   /* 12px */
+            --text-sm: 0.875rem;  /* 14px */
+            --text-base: 1rem;    /* 16px */
+            --text-lg: 1.125rem;  /* 18px */
+            --text-xl: 1.25rem;   /* 20px */
+            --text-2xl: 1.5rem;   /* 24px */
+            --text-3xl: 2rem;     /* 32px */
+            --text-4xl: 2.5rem;   /* 40px */
+            
+            /* Layout */
+            --content-max-width: 1400px;
+            --grid-gap: var(--spacing-lg);
+            --border-radius: var(--spacing-sm);
+            
+            /* Colors */
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #2a2a2a;
+            --accent-primary: #dc2626;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --text-muted: #9ca3af;
+            --border-color: rgba(220, 38, 38, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: var(--text-base);
+        }
+
+        /* Main Container - Following 8px Grid */
+        .carousel-container {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /* Navigation - Properly Spaced */
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .carousel-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: calc(var(--unit) * 7); /* 56px */
+            height: calc(var(--unit) * 7);
+            background: rgba(220, 38, 38, 0.1);
+            color: var(--accent-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            font-size: var(--text-xl);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-arrow:hover:not(:disabled) {
+            background: rgba(220, 38, 38, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .carousel-arrow:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .carousel-dots {
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+
+        .carousel-dot {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--spacing-sm);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: var(--text-sm);
+            font-weight: 500;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .carousel-dot:hover {
+            background: rgba(220, 38, 38, 0.1);
+            color: var(--accent-primary);
+            border-color: var(--border-color);
+        }
+
+        .carousel-dot.active {
+            background: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+        }
+
+        .carousel-dots::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Carousel Wrapper */
+        .carousel-wrapper {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Individual Slide - Perfect Grid */
+        .carousel-slide {
+            min-width: 100%;
+            display: grid;
+            grid-template-columns: minmax(250px, 2fr) minmax(200px, 1fr);
+            gap: clamp(var(--spacing-md), 4vw, var(--grid-gap));
+            padding: clamp(var(--spacing-md), 3vw, var(--spacing-xl));
+            min-height: auto;
+        }
+
+        /* Left Column - Content */
+        .slide-content {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(var(--spacing-md), 3vw, var(--spacing-xl));
+            min-width: 0;
+        }
+
+        /* Project Header - Baseline Aligned */
+        .project-header {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .project-title {
+            font-size: var(--text-4xl);
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        .project-badges {
+            display: flex;
+            gap: var(--spacing-sm);
+            align-items: center;
+        }
+
+        .project-genre,
+        .project-status {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--spacing-sm);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .project-genre {
+            background: rgba(220, 38, 38, 0.2);
+            color: var(--accent-primary);
+        }
+
+        .project-status {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+
+        .status-prototype {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+
+        .status-academic {
+            background: rgba(168, 85, 247, 0.2);
+            color: #a855f7;
+        }
+
+        /* Media Showcase - Modular Grid */
+        .media-showcase {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .main-media-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            max-height: 400px;
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-media {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .media-placeholder {
+            color: var(--text-muted);
+            font-size: var(--text-lg);
+            text-align: center;
+        }
+
+        .media-overlay {
+            position: absolute;
+            bottom: var(--spacing-md);
+            left: var(--spacing-md);
+            background: rgba(0, 0, 0, 0.8);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--spacing-sm);
+            font-size: var(--text-sm);
+            color: var(--accent-primary);
+            font-weight: 600;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .media-overlay.fade-out {
+        opacity: 0;
+        }
+
+        /* Thumbnail Grid - Perfect Alignment */
+        .media-thumbnails {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: var(--spacing-md);
+            gap: var(--spacing-sm);
+            background: #0f0f0f;
+        }
+
+        .media-thumb {
+            width: calc(var(--unit) * 14); /* 112px - increased from 80px */
+            height: calc(var(--unit) * 8);  /* 64px - increased from 48px */
+            background: var(--bg-tertiary);
+            border: 2px solid transparent;
+            border-radius: 0; /* Changed from var(--spacing-sm) to 0 for rectangular */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-xs);
+            font-weight: 600;
+            color: var(--text-muted);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumb-overlay {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 4px;
+            border-radius: 2px;
+            z-index: 1;
+        }
+
+        .media-thumb:hover {
+            border-color: var(--accent-primary);
+            background: #444;
+        }
+
+        .media-thumb.active {
+            border-color: var(--accent-primary);
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        /* Description - Typography Grid */
+        .project-description {
+            font-size: var(--text-lg);
+            line-height: 1.7;
+            color: var(--text-secondary);
+            flex-grow: 1;
+        }
+
+        /* CTA Button Section */
+        .cta-section {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-size: var(--text-base);
+            font-weight: 600;
+            border-radius: var(--spacing-sm);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            filter: brightness(1.1);
+        }
+
+        /* Right Sidebar - Consistent Spacing */
+        .slide-sidebar {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: clamp(var(--spacing-md), 3vw, var(--spacing-xl));
+            display: flex;
+            flex-direction: column;
+            gap: clamp(var(--spacing-md), 2vw, var(--spacing-xl));
+            min-width: 0;
+        }
+
+        .info-section {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: clamp(var(--spacing-sm), 2vw, var(--spacing-lg));
+        }
+
+        .info-section h4 {
+            color: var(--accent-primary);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Info Rows - Perfect Alignment */
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .info-label {
+            color: var(--text-muted);
+            font-size: var(--text-sm);
+            font-weight: 500;
+        }
+
+        .info-value {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: var(--text-sm);
+            text-align: right;
+        }
+
+        /* Feature Items - Consistent Spacing */
+        .feature-item {
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .feature-title {
+            color: var(--accent-primary);
+            font-weight: 600;
+            font-size: var(--text-base);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .feature-desc {
+            color: var(--text-muted);
+            font-size: var(--text-sm);
+            line-height: 1.5;
+        }
+
+        /* Tech Grid - 8px Aligned */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+        }
+
+        .tech-tag {
+            background: rgba(220, 38, 38, 0.2);
+            color: var(--text-primary);
+            padding: var(--spacing-sm);
+            border: 1px solid var(--border-color);
+            border-radius: var(--spacing-sm);
+            font-size: var(--text-sm);
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Responsive Breakpoints - Fluid Design */
+        @media (max-width: 1024px) {
+            .carousel-slide {
+                grid-template-columns: 1fr;
+                gap: clamp(var(--spacing-md), 4vw, var(--spacing-lg));
+            }
+            
+            .slide-sidebar {
+                /* order: -1;  */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .carousel-container {
+                padding: 0;
+            }
+            
+            .carousel-nav {
+                gap: clamp(var(--spacing-xs), 2vw, var(--spacing-sm));
+                margin-bottom: clamp(var(--spacing-sm), 3vw, var(--spacing-md));
+            }
+
+            .carousel-arrow {
+                width: clamp(32px, 8vw, 40px);
+                height: clamp(32px, 8vw, 40px);
+                font-size: clamp(var(--text-sm), 4vw, var(--text-base));
+            }
+
+            .carousel-dot {
+                padding: clamp(4px, 1vw, 8px) clamp(8px, 2vw, 16px);
+                font-size: clamp(10px, 2.5vw, 12px);
+                border-radius: 4px;
+            }
+            
+            .project-title {
+                font-size: clamp(1.5rem, 6vw, 2rem);
+                line-height: 1.2;
+            }
+
+            .project-badges {
+                flex-wrap: wrap;
+                gap: clamp(4px, 1vw, 8px);
+            }
+
+            .project-genre,
+            .project-status {
+                padding: clamp(4px, 1vw, 8px) clamp(8px, 2vw, 12px);
+                font-size: clamp(10px, 2.5vw, 14px);
+            }
+
+            .media-thumbnails {
+                padding: clamp(8px, 2vw, 16px);
+                gap: clamp(4px, 1vw, 8px);
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .media-thumb {
+                width: clamp(60px, 15vw, 80px);
+                height: clamp(36px, 9vw, 48px);
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                gap: clamp(4px, 1vw, 8px);
+            }
+
+            .tech-tag {
+                padding: clamp(4px, 1vw, 8px);
+                font-size: clamp(10px, 2.5vw, 12px);
+            }
+
+            .info-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2px;
+            }
+
+            .info-value {
+                text-align: left;
+                font-weight: 500;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-container {
+                padding: 0;
+            }
+
+            .carousel-slide {
+                padding: clamp(8px, 4vw, 16px);
+            }
+            
+            .project-badges {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .carousel-dots {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .carousel-dot {
+                min-width: auto;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel-container">
+        <!-- Navigation -->
+        <div class="carousel-nav">
+            <button class="carousel-arrow prev" onclick="previousSlide()">‹</button>
+            <div class="carousel-dots">
+                <!-- Generated dynamically -->
+            </div>
+            <button class="carousel-arrow next" onclick="nextSlide()">›</button>
+        </div>
+
+        <div class="carousel-wrapper">
+            <div class="carousel-slides">
+                <!-- Generated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        let projects = [];
+        let currentMediaIndex = {};
+
+        async function loadProjectData() {
+            try {
+                const response = await fetch('Projects/projects.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const projectData = await response.json();
+                projects = projectData;
+                
+                projects.forEach((project, index) => {
+                    currentMediaIndex[index] = 0;
+                });
+                
+                generateCarousel();
+                updateCarousel();
+                
+            } catch (error) {
+                console.error('Error loading project data:', error);
+                loadFallbackData();
+            }
+        }
+
+        function generateCarousel() {
+        const slidesContainer = document.querySelector('.carousel-slides');
+        const dotsContainer = document.querySelector('.carousel-dots');
+        
+        slidesContainer.innerHTML = '';
+        dotsContainer.innerHTML = '';
+
+        projects.forEach((project, index) => {
+            const slide = createSlide(project, index);
+            slidesContainer.appendChild(slide);
+            const dot = createDot(project, index);
+            dotsContainer.appendChild(dot);
+        });
+        
+        // Add initial fade timers for all overlays
+        setTimeout(() => {
+            projects.forEach((project, index) => {
+            startFadeTimer(index);
+            });
+        }, 100);
+        }
+
+        function createSlide(project, projectIndex) {
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide';
+            
+            const mediaSection = createMediaSection(project, projectIndex);
+            
+            slide.innerHTML = `
+                <div class="slide-content">
+                    <div class="project-header">
+                        <h3 class="project-title">${project.title}</h3>
+                        <div class="project-badges">
+                            <span class="project-genre">${project.genre}</span>
+                            <span class="project-status status-${project.statusClass || 'development'}">${project.status}</span>
+                        </div>
+                    </div>
+                    
+                    ${mediaSection}
+                    
+                    <div class="project-description">
+                        <p>${project.description}</p>
+                    </div>
+                </div>
+                
+                <div class="slide-sidebar">
+                    ${project.cta ? `
+                        <div class="cta-section">
+                            <a href="${project.cta.url}" target="_blank" class="cta-button" style="background-color: ${project.cta.color || '#dc2626'};">
+                                ${project.cta.text}
+                            </a>
+                        </div>
+                    ` : ''}
+                    
+                    <div class="info-section">
+                        <h4>Project Info</h4>
+                        ${Object.entries(project.info).map(([key, value]) => `
+                            <div class="info-row">
+                                <span class="info-label">${key.charAt(0).toUpperCase() + key.slice(1)}</span>
+                                <span class="info-value">${value}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    <div class="info-section">
+                        <h4>Key Features</h4>
+                        ${project.features ? project.features.map(feature => `
+                            <div class="feature-item">
+                                <div class="feature-title">${feature.title}</div>
+                                <div class="feature-desc">${feature.desc}</div>
+                            </div>
+                        `).join('') : ''}
+                    </div>
+                    
+                    ${project.tech ? `
+                        <div class="info-section">
+                            <h4>Technology</h4>
+                            <div class="tech-grid">
+                                ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+            
+            return slide;
+        }
+
+        function createMediaSection(project, projectIndex) {
+            if (!project.media || project.media.length === 0) {
+                return `
+                    <div class="media-showcase">
+                        <div class="main-media-container">
+                            <div class="media-placeholder">[Main Screenshot/GIF]</div>
+                            <div class="media-overlay">No Media Available</div>
+                        </div>
+                        <div class="media-thumbnails">
+                            <div class="media-thumb active">NO MEDIA</div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            const firstMedia = project.media[0];
+            const thumbnailsHtml = project.media.map((media, index) => {
+                const typeLabel = media.type.substring(0, 3).toUpperCase();
+                const isActive = index === 0 ? 'active' : '';
+                const thumbSrc = media.thumbnail || media.path; // ADD THIS LINE BACK
+                
+                return `<div class="media-thumb ${isActive}" onclick="switchMedia(${projectIndex}, ${index})">
+                    <img src="${thumbSrc}" alt="${media.title}">
+                    <div class="thumb-overlay">${typeLabel}</div>
+                </div>`;
+            }).join('');
+
+            return `
+                <div class="media-showcase">
+                    <div class="main-media-container" id="media-display-${projectIndex}"
+                        onmouseenter="showOverlay(${projectIndex})" 
+                        onmouseleave="startFadeTimer(${projectIndex})">
+                        ${createMediaDisplay(firstMedia)}
+                        <div class="media-overlay" id="overlay-${projectIndex}">${firstMedia.title} (1 of ${project.media.length})</div>
+                    </div>
+                    <div class="media-thumbnails">
+                        ${thumbnailsHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        function createMediaDisplay(media) {
+            if (media.type === 'video') {
+                return `<video class="main-media" controls autoplay muted>
+                    <source src="${media.path}" type="video/mp4">
+                    Video not supported
+                </video>`;
+            } else {
+                return `<img class="main-media" src="${media.path}" alt="${media.title}" 
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="media-placeholder" style="display:none;">[${media.title}]</div>`;
+            }
+        }
+
+        function switchMedia(projectIndex, mediaIndex) {
+            currentMediaIndex[projectIndex] = mediaIndex;
+            
+            const slide = document.querySelectorAll('.carousel-slide')[projectIndex];
+            const mediaDisplay = slide.querySelector(`#media-display-${projectIndex}`);
+            const thumbnails = slide.querySelectorAll('.media-thumb');
+            
+            const currentProject = projects[projectIndex];
+            const media = currentProject.media[mediaIndex];
+            
+            mediaDisplay.innerHTML = createMediaDisplay(media) + 
+                `<div class="media-overlay">${media.title} (${mediaIndex + 1} of ${currentProject.media.length})</div>`;
+            
+            thumbnails.forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === mediaIndex);
+            });
+            // Reset and start fade timer for overlay
+            startFadeTimer(projectIndex);
+        }
+
+        function createDot(project, index) {
+            const dot = document.createElement('button');
+            dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+            dot.textContent = project.title;
+            dot.onclick = () => goToSlide(index);
+            return dot;
+        }
+
+        function updateCarousel() {
+            const slideContainer = document.querySelector('.carousel-slides');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const prevBtn = document.querySelector('.carousel-arrow.prev');
+            const nextBtn = document.querySelector('.carousel-arrow.next');
+
+            if (!slideContainer) return;
+
+            slideContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+            if (prevBtn) prevBtn.disabled = currentSlide === 0;
+            if (nextBtn) nextBtn.disabled = currentSlide === projects.length - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < projects.length - 1) {
+                currentSlide++;
+                updateCarousel();
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateCarousel();
+            }
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        function loadFallbackData() {
+            projects = [{
+                title: "Underworld",
+                genre: "Action RPG",
+                status: "In Development",
+                statusClass: "development",
+                description: "Experience the journey of an undead king awakening in the seventh circle of hell. This intense action RPG combines philosophical themes with fast-paced combat mechanics inspired by classic demon-fighting games like Devil May Cry and Doom.",
+                features: [
+                    {title: "Fast-paced Combat", desc: "Devil May Cry inspired mechanics with fluid combos"},
+                    {title: "Spiritual Narrative", desc: "Deep exploration of classical themes and redemption"},
+                    {title: "Underworld Setting", desc: "Navigate through the seven circles of hell"}
+                ],
+                info: {
+                    platform: "PC (Windows)",
+                    engine: "Unreal Engine 5",
+                    players: "Single Player",
+                    status: "Active Development"
+                },
+                tech: ["UE5", "Ability System", "MVVM", "FluidNinja"],
+                media: [
+                    {type: "screenshot", path: "Projects/media/underworld/screenshot1.jpg", title: "Screenshot 1"},
+                    {type: "screenshot", path: "Projects/media/underworld/screenshot2.jpg", title: "Screenshot 2"},
+                    {type: "gif", path: "Projects/media/underworld/combat.gif", title: "GIF"},
+                    {type: "screenshot", path: "Projects/media/underworld/screenshot3.jpg", title: "Screenshot 3"},
+                    {type: "video", path: "Projects/media/underworld/trailer.mp4", title: "VID"}
+                ]
+            }];
+            
+            projects.forEach((project, index) => {
+                currentMediaIndex[index] = 0;
+            });
+            
+            generateCarousel();
+            updateCarousel();
+        }
+
+        document.addEventListener('DOMContentLoaded', loadProjectData);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') previousSlide();
+            if (e.key === 'ArrowRight') nextSlide();
+        });
+
+        let fadeTimers = {};
+
+        function showOverlay(projectIndex) {
+            clearTimeout(fadeTimers[projectIndex]);
+            const overlay = document.getElementById(`overlay-${projectIndex}`);
+            if (overlay) overlay.classList.remove('fade-out');
+        }
+
+        function startFadeTimer(projectIndex) {
+            fadeTimers[projectIndex] = setTimeout(() => {
+                const overlay = document.getElementById(`overlay-${projectIndex}`);
+                if (overlay) overlay.classList.add('fade-out');
+            }, 2000);
+        }
+
+    </script>
+</body>
+</html>

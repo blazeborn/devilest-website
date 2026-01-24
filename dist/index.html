@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devilest - Independent Game Studio</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/variables.min.css">
+    <link rel="stylesheet" href="css/base.min.css">
+    <link rel="stylesheet" href="css/components/navbar.min.css">
+    <link rel="stylesheet" href="css/components/hero.min.css">
+    <link rel="stylesheet" href="css/components/about.min.css">
+    <link rel="stylesheet" href="css/components/project.min.css">
+    <link rel="stylesheet" href="css/components/contact.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <img src="imgs/DevilestLogo_v2_Small.png" alt="DEVILEST" class="logo">
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">Studio</a></li>
+                <li><a href="#project" class="nav-link">Game</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div id="flameContainer"></div>
+        <div class="hero-content">
+            <div class="fade-in">
+                <img src="imgs/DevilestLogo_v2_Large.png" alt="DEVILEST" class="logo-large">
+            </div>
+            <p class="description fade-in">
+                Game Studio crafting meaningful action experiences with rock n roll attitude. Currently developing an underworld adventure that combines philosophical themes with intense combat mechanics.
+            </p>
+            <div class="fade-in">
+                <a href="#project" class="cta-button">View Projects</a>
+                <a href="#about" class="cta-button cta-secondary">About the Studio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-content">
+                <div class="about-image fade-in">
+                    <img src="imgs/Founder.png" alt="Founder" class="founder-image">
+                </div>
+                <div class="about-text fade-in">
+                    <h2>The Studio</h2>
+                    
+                    <div class="studio-card">
+                        <h3>Focus & Vision</h3>
+                        <p>Devilest emerged from a lifelong passion for demon-fighting games like Doom, Devil May Cry, Diablo, and dark fantasy worlds. The studio explores the intersection of technology and spiritual themes, creating games that challenge players both mechanically and philosophically through meaningful action experiences.</p>
+                        <p>&nbsp;</p>
+                        <p>Founded by Vitor Silvestre, a Brazilian with 10+ years of game development, formal game design education, AAA background, and guitar playing to create meaningful action games with rock n roll attitude.</p>
+                    </div>
+
+                    <div class="credentials">
+                        <h4>Development Foundation</h4>
+                        <ul>
+                            <li>Bachelor's Degree in Game Design</li>
+                            <li>Tech UI - Fortnite (Epic Games)</li>
+                            <li>Combat Designer (Warner Bros Games)</li>
+                            <li>Brazilian Game Development Background</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Section -->
+    <section id="project" class="project">
+        <div class="project-container">
+            <h2 class="fade-in">Projects</h2>
+            <div class="carousel-embed">
+                <iframe id="projects-iframe" src="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <h2 class="fade-in">Connect</h2>
+            <p class="contact-description fade-in">
+                Interested in publishing opportunities, development collaboration, or following the project's progress?
+            </p>
+            
+            <div class="contact-grid fade-in">
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <a href="mailto:v@devilest.com">v@devilest.com</a>
+                </div>
+                <div class="contact-card">
+                    <h3>LinkedIn</h3>
+                    <a href="#" target="_blank">linkedin.com/in/notrealvitor</a>
+                </div>
+                <div class="contact-card">
+                    <h3>Instagram</h3>
+                    <a href="#" target="_blank">@devilestcorp</a>
+                </div>
+                <div class="contact-card">
+                    <h3>Location</h3>
+                    <p>Brazil 🇧🇷</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OPTIMIZED: Bundled Three.js loader (replaces 7 separate script tags) -->
+    <script src="js/three-bundle-loader.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/navigation.min.js"></script>
+    <script src="js/animations.min.js"></script>
+    <script src="js/carousel-loader.min.js"></script>
+    
+    <!-- OPTIMIZED: Lazy-loaded fire shader (only loads when hero section is visible) -->
+    <script src="js/fire-shader-lazy.min.js"></script>
+</body>
+</html>

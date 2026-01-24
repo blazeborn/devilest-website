@@ -1,0 +1,58 @@
+[{
+    "title": "Underworld Overlord",
+    "genre": "Survival Roguelike", 
+    "status": "In Development",
+    "statusClass": "development",
+    "cta":   {
+      "text": "Coming to Epic Games Store",
+      "url": "https://store.epicgames.com/",
+      "color": "#ff6b35",
+      "primary": true
+    },
+    "description": "Rise up as a fallen hero in the frozen depths of the underworld. Command armies of dead while channeling spiritual powers to fight through waves of tormented souls across cursed realms. Harvest essence from fallen enemies to grow stronger each run, unlock devastating abilities, spells, and weapons as you ascend from forgotten wretch to become the Underworld Overlord. Based on authentic spiritual literature, experience an afterlife unlike any game before.",
+    "features": [
+      {"title": "UE5 Powered", "desc": "Stunning visuals with optimized performance"},
+      {"title": "Army Building", "desc": "Raise and command fallen enemies in strategic combat"},
+      {"title": "Massive Power", "desc": "Start weak and become unstoppable!"},
+      {"title": "Roguelike Progression", "desc": "Endless replayability with new builds and strategies each run"},
+      {"title": "Domination Rankings", "desc": "Prove your mastery and claim rewards worthy of an overlord"},  
+      {"title": "Damned Realms", "desc": "Uncover the dark mysteries of the spiritual underworld"}
+    ],
+    "info": {
+      "platform": "PC (Windows)",
+      "engine": "Unreal Engine 5",
+      "players": "Single Player",
+      "status": "Active Development",
+      "price": "$5 USD"
+    },
+    "tech": ["UE5", "GAS", "MVVM", "Ninja Tools", "Logic Driver Pro"],
+    "media": [
+      {
+        "type": "img",
+        "path": "https://picsum.photos/800/600?random=1",
+        "title": "Late-Game Underworld Overlord"
+      },
+      {
+        "type": "img",
+        "path": "https://picsum.photos/800/600?random=2", 
+        "title": "Spiritual Realm Environment"
+      },
+      {
+        "type": "gif",
+        "path": "https://picsum.photos/800/600?random=3",
+        "title": "Army Building Demo"
+      },
+      {
+        "type": "img",
+        "path": "https://picsum.photos/800/600?random=4",
+        "title": "Powered-Up Hero Build"
+      },
+      {
+        "type": "video",
+        "path": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "thumbnail": "https://picsum.photos/112/64?random=video1",
+        "title": "Technical Showcase Trailer"
+      }
+    ]
+  }
+]
