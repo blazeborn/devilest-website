@@ -9,11 +9,24 @@
     // Wait for Three.js to be ready
     function waitForThreeJS() {
         return new Promise((resolve) => {
-            if (typeof THREE !== 'undefined') {
-                resolve();
-            } else {
-                window.addEventListener('threejs-ready', resolve, { once: true });
-            }
+            // Check if all required Three.js components are loaded
+            const checkLoaded = () => {
+                if (typeof THREE !== 'undefined' && 
+                    THREE.RenderPass && 
+                    THREE.EffectComposer && 
+                    THREE.UnrealBloomPass) {
+                    resolve();
+                } else {
+                    setTimeout(checkLoaded, 100);
+                }
+            };
+            
+            // Also listen for the custom event as backup
+            window.addEventListener('threejs-ready', () => {
+                setTimeout(checkLoaded, 100); // Small delay to ensure everything is ready
+            }, { once: true });
+            
+            checkLoaded();
         });
     }
     
