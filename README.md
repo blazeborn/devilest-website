@@ -12,7 +12,7 @@ A professional game store-inspired carousel for showcasing game projects with me
 - **Autoplay videos** with thumbnail previews
 - **Keyboard navigation** support
 
-## File Structure 
+## File Structure
 
 ```
 your-website/
