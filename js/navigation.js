@@ -22,14 +22,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar scroll effect
+// Navbar scroll effect - fade background only
+let lastScrollY = 0;
+let ticking = false;
+
 window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(10, 10, 10, 0.98)';
-        navbar.style.borderBottom = '1px solid rgba(220, 38, 38, 0.5)';
-    } else {
-        navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-        navbar.style.borderBottom = '1px solid rgba(220, 38, 38, 0.3)';
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            const navbar = document.querySelector('.navbar');
+            const currentScrollY = window.scrollY;
+            
+            // Fade background when scrolling down, show when scrolling up or at top
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                // Scrolling down - make transparent
+                navbar.classList.add('transparent');
+            } else if (currentScrollY < lastScrollY || currentScrollY <= 100) {
+                // Scrolling up or near top - show background
+                navbar.classList.remove('transparent');
+            }
+            
+            lastScrollY = currentScrollY;
+            ticking = false;
+        });
+        ticking = true;
     }
 });

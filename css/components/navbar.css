@@ -9,10 +9,17 @@
     z-index: var(--z-navbar);
     padding: var(--spacing-sm) 0;
     border-bottom: 1px solid var(--border-red-medium);
+    transition: background 0.3s ease, backdrop-filter 0.3s ease, border-bottom 0.3s ease;
+}
+
+.navbar.transparent {
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: 1px solid transparent;
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -23,12 +30,20 @@
 .logo {
     height: 40px;
     width: auto;
+    margin-right: auto;
+    transition: opacity 0.3s ease;
+}
+
+.navbar.transparent .logo {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
     gap: var(--spacing-md);
+    margin-left: auto;
 }
 
 .nav-link {
