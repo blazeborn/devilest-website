@@ -20,11 +20,16 @@
         <div class="nav-container">
             <img src="imgs/DevilestLogo_v2_Small.png" alt="DEVILEST" class="logo">
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">Studio</a></li>
-                <li><a href="#project" class="nav-link">Game</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#home" class="nav-link" data-i18n="nav.home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav.studio">Studio</a></li>
+                <li><a href="#project" class="nav-link" data-i18n="nav.game">Games</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
             </ul>
+            <div class="lang-switch">
+                <button type="button" class="lang-flag" data-lang="pt" aria-label="Português"><img src="imgs/flags/br.svg" alt="Português"></button>
+                <button type="button" class="lang-flag" data-lang="en" aria-label="English"><img src="imgs/flags/gb.svg" alt="English"></button>
+                <button type="button" class="lang-flag" data-lang="es" aria-label="Español"><img src="imgs/flags/es.svg" alt="Español"></button>
+            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -40,12 +45,12 @@
             <div class="fade-in">
                 <img src="imgs/DevilestLogo_v2_Large.png" alt="DEVILEST" class="logo-large">
             </div>
-            <p class="description fade-in">
+            <p class="description fade-in" data-i18n="hero.desc">
                 Game Studio crafting meaningful action experiences with rock n roll attitude. Currently developing an underworld adventure that combines philosophical themes with intense combat mechanics.
             </p>
             <div class="fade-in">
-                <a href="#project" class="cta-button">View Projects</a>
-                <a href="#about" class="cta-button cta-secondary">About the Studio</a>
+                <a href="#project" class="cta-button" data-i18n="hero.cta.projects">View Projects</a>
+                <a href="#about" class="cta-button cta-secondary" data-i18n="hero.cta.about">About the Studio</a>
             </div>
         </div>
     </section>
@@ -56,24 +61,32 @@
             <div class="about-content">
                 <div class="about-image fade-in">
                     <img src="imgs/Founder.png" alt="Founder" class="founder-image">
+                    <div class="social-links">
+                        <a class="social-link" href="https://x.com/notrealvitor" target="_blank" rel="noopener" aria-label="X">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+                        </a>
+                        <a class="social-link" href="https://bsky.app/profile/notrealvitor.bsky.social" target="_blank" rel="noopener" aria-label="Bluesky">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/></svg>
+                        </a>
+                    </div>
                 </div>
                 <div class="about-text fade-in">
-                    <h2>The Studio</h2>
-                    
+                    <h2 data-i18n="about.title">The Studio</h2>
+
                     <div class="studio-card">
-                        <h3>Focus & Vision</h3>
-                        <p>Devilest emerged from a lifelong passion for demon-fighting games like Doom, Devil May Cry, Diablo, and dark fantasy worlds. The studio explores the intersection of technology and spiritual themes, creating games that challenge players both mechanically and philosophically through meaningful action experiences.</p>
+                        <h3 data-i18n="about.focus.title">Focus & Vision</h3>
+                        <p data-i18n="about.focus.p1">Devilest emerged from a lifelong passion for demon-fighting games like Doom, Devil May Cry, Diablo, and dark fantasy worlds. The studio explores the intersection of technology and spiritual themes, creating games that challenge players both mechanically and philosophically through meaningful action experiences.</p>
                         <p>&nbsp;</p>
-                        <p>Founded by Vitor Silvestre, a Brazilian with 10+ years of game development, formal game design education, AAA background, and guitar playing to create meaningful action games with rock n roll attitude.</p>
+                        <p data-i18n="about.focus.p2">Founded by Vitor Silvestre, a Brazilian with 10+ years of game development, formal game design education, AAA background, and guitar playing to create meaningful action games with rock n roll attitude.</p>
                     </div>
 
                     <div class="credentials">
-                        <h4>Development Foundation</h4>
+                        <h4 data-i18n="about.foundation.title">Development Foundation</h4>
                         <ul>
-                            <li>Bachelor's Degree in Game Design</li>
-                            <li>Tech UI - Fortnite (Epic Games)</li>
-                            <li>Combat Designer (Warner Bros Games)</li>
-                            <li>Brazilian Game Development Background</li>
+                            <li data-i18n="about.foundation.1">Bachelor's Degree in Game Design</li>
+                            <li data-i18n="about.foundation.2">Tech UI - Fortnite (Epic Games)</li>
+                            <li data-i18n="about.foundation.3">Combat Designer (Warner Bros Games)</li>
+                            <li data-i18n="about.foundation.4">Brazilian Game Development Background</li>
                         </ul>
                     </div>
                 </div>
@@ -83,40 +96,56 @@
 
     <!-- Project Section -->
     <section id="project" class="project">
-        <div class="project-container">
-            <h2 class="fade-in">Projects</h2>
-            <div class="carousel-embed">
-                <iframe id="projects-iframe" src="" loading="lazy"></iframe>
-            </div>
-        </div>
+        <div id="projects-carousel" class="projects-carousels" aria-label="Projetos Devilest"></div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="contact-container">
-            <h2 class="fade-in">Connect</h2>
-            <p class="contact-description fade-in">
+            <h2 class="fade-in" data-i18n="contact.title">Connect</h2>
+            <p class="contact-description fade-in" data-i18n="contact.desc">
                 Interested in publishing opportunities, development collaboration, or following the project's progress?
             </p>
-            
-            <div class="contact-grid fade-in">
-                <div class="contact-card">
-                    <h3>Email</h3>
-                    <a href="mailto:v@devilest.com">v@devilest.com</a>
-                </div>
-                <div class="contact-card">
-                    <h3>LinkedIn</h3>
-                    <a href="#" target="_blank">linkedin.com/in/notrealvitor</a>
-                </div>
-                <div class="contact-card">
-                    <h3>Instagram</h3>
-                    <a href="#" target="_blank">@devilestcorp</a>
-                </div>
-                <div class="contact-card">
-                    <h3>Location</h3>
-                    <p>Brazil 🇧🇷</p>
-                </div>
+
+            <div class="social-links social-links--lg fade-in">
+                <a class="social-link" href="mailto:v@devilest.com" aria-label="Email">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </a>
+                <a class="social-link" href="https://instagram.com/devilestco" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+                </a>
+                <a class="social-link" href="https://discord.gg/zKbnz2ntRr" target="_blank" rel="noopener" aria-label="Discord">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+                </a>
             </div>
+            <h3 class="contact-form-title fade-in" data-i18n="contact.form.title">Send a message</h3>
+
+            <form class="contact-form fade-in" id="contact-form">
+                <div class="contact-form__row">
+                    <label class="contact-form__label" for="cf-email" data-i18n="contact.form.emailLabel">Your email</label>
+                    <input class="contact-form__input" id="cf-email" name="email" type="email" required
+                           autocomplete="email" placeholder="you@example.com"
+                           data-i18n-placeholder="contact.form.emailPlaceholder">
+                </div>
+                <div class="contact-form__row">
+                    <label class="contact-form__label" for="cf-message" data-i18n="contact.form.messageLabel">Message</label>
+                    <textarea class="contact-form__input contact-form__textarea" id="cf-message" name="message"
+                              rows="5" maxlength="1500" placeholder="Tell me what you have in mind..."
+                              data-i18n-placeholder="contact.form.messagePlaceholder"></textarea>
+                </div>
+                <label class="contact-form__check">
+                    <input type="checkbox" id="cf-newsletter" name="newsletter" checked>
+                    <span data-i18n="contact.form.newsletter">Add me to the newsletter</span>
+                </label>
+                <button class="contact-form__submit" type="submit" data-i18n="contact.form.send">Send email</button>
+                <p class="contact-form__hint" data-i18n="contact.form.hint">This opens your email app with the message ready to send.</p>
+            </form>
+
+            <p class="contact-location fade-in" data-i18n="contact.location">Brazil 🇧🇷</p>
+
+            <a class="back-to-top fade-in" href="#home" aria-label="Back to top" data-i18n-aria="contact.backToTop">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.6l-7.6 7.6 1.4 1.4L11 8.4V20h2V8.4l5.2 5.2 1.4-1.4z"/></svg>
+            </a>
         </div>
     </section>
 
@@ -124,9 +153,11 @@
     <script src="js/three-bundle-loader.min.js"></script>
     
     <!-- Custom Scripts -->
+    <script src="js/i18n.min.js"></script>
     <script src="js/navigation.min.js"></script>
     <script src="js/animations.min.js"></script>
-    <script src="js/carousel-loader.min.js"></script>
+    <script src="js/projects.min.js"></script>
+    <script src="js/contact.min.js"></script>
     
     <!-- OPTIMIZED: Lazy-loaded fire shader (only loads when hero section is visible) -->
     <script src="js/fire-shader-lazy.min.js"></script>

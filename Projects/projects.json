@@ -1,57 +1,140 @@
-[{
-    "title": "Underworld Overlord",
-    "genre": "Survival Roguelike", 
-    "status": "In Development",
-    "statusClass": "development",
-    "cta":   {
-      "text": "Coming to Epic Games Store",
-      "url": "https://store.epicgames.com/",
-      "color": "#ff6b35",
-      "primary": true
+[
+  {
+    "id": "netherlords",
+    "hidden": false,
+    "order": 1,
+    "title": "Netherlords",
+    "logo": "imgs/projects/netherlords_logo.png",
+    "background": "imgs/projects/netherlords_bg.jpg",
+    "pitch": {
+      "pt": "Netherlords é um action roguelite de dark fantasy onde sua build é um deck de cartas.\n\nDesperte como uma alma perdida nas profundezas do mundo espiritual, abra caminho por hordas de espíritos caídos com um combate soulslike visceral, cace loot lendário e molde seu destino, carta por carta.",
+      "en": "Netherlords is a dark fantasy action roguelite where your build is a deck of cards.\n\nAwaken as a lost soul in the depths of the spiritual world, carve through hordes of fallen spirits with visceral soulslike combat, hunt legendary loot, and shape your destiny, card by card.",
+      "es": "Netherlords es un action roguelite de dark fantasy donde tu build es un mazo de cartas.\n\nDespierta como un alma perdida en las profundidades del mundo espiritual, ábrete paso entre hordas de espíritus caídos con un combate soulslike visceral, caza botín legendario y forja tu destino, carta a carta."
     },
-    "description": "Rise up as a fallen hero in the frozen depths of the underworld. Command armies of dead while channeling spiritual powers to fight through waves of tormented souls across cursed realms. Harvest essence from fallen enemies to grow stronger each run, unlock devastating abilities, spells, and weapons as you ascend from forgotten wretch to become the Underworld Overlord. Based on authentic spiritual literature, experience an afterlife unlike any game before.",
-    "features": [
-      {"title": "UE5 Powered", "desc": "Stunning visuals with optimized performance"},
-      {"title": "Army Building", "desc": "Raise and command fallen enemies in strategic combat"},
-      {"title": "Massive Power", "desc": "Start weak and become unstoppable!"},
-      {"title": "Roguelike Progression", "desc": "Endless replayability with new builds and strategies each run"},
-      {"title": "Domination Rankings", "desc": "Prove your mastery and claim rewards worthy of an overlord"},  
-      {"title": "Damned Realms", "desc": "Uncover the dark mysteries of the spiritual underworld"}
+    "playLabel": { "pt": "", "en": "", "es": "" },
+    "stores": [
+      { "type": "steam", "comingSoon": true }
     ],
-    "info": {
-      "platform": "PC (Windows)",
-      "engine": "Unreal Engine 5",
-      "players": "Single Player",
-      "status": "Active Development",
-      "price": "$5 USD"
+    "startMedia": { "type": "gif", "path": "imgs/projects/netherlords_main.gif" },
+    "slides": [
+      {
+        "media": "imgs/projects/netherlords_combat.gif",
+        "title": {
+          "pt": "Combate soulslike visceral",
+          "en": "Visceral soulslike combat",
+          "es": "Combate soulslike visceral"
+        },
+        "text": {
+          "pt": "Combate em terceira pessoa rápido e deliberado contra hordas de almas caídas. Atributos, escalonamento de armas e dano que recompensam maestria, cada classe de inimigo golpeia diferente, e os elites cobram caro pela ganância.",
+          "en": "Fast, deliberate third-person combat against hordes of fallen souls. Attributes, weapon scaling and damage that reward mastery, every enemy class hits different, and elites will make you pay for greed.",
+          "es": "Combate en tercera persona rápido y deliberado contra hordas de almas caídas. Atributos, escalado de armas y daño que recompensan la maestría, cada clase de enemigo golpea distinto, y los élites te cobran caro la codicia."
+        }
+      },
+      {
+        "media": "imgs/projects/netherlords_deck.gif",
+        "title": {
+          "pt": "Monte seu deck. Forje seu poder.",
+          "en": "Build your deck. Forge your power.",
+          "es": "Arma tu mazo. Forja tu poder."
+        },
+        "text": {
+          "pt": "Antes de cada run, monte um deck de Cartas de Ascensão, desbloqueios permanentes conquistados na exploração, nos segredos e na vitória. Durante a run, suba de nível e compre do seu deck para moldar a build na hora.",
+          "en": "Before every run, assemble a deck of Ascension Cards, permanent unlocks earned through exploration, secrets and victory. During the run, level up and draw from your deck to shape your build on the fly.",
+          "es": "Antes de cada run, arma un mazo de Cartas de Ascensión, desbloqueos permanentes ganados mediante exploración, secretos y victoria. Durante la run, sube de nivel y roba de tu mazo para moldear tu build sobre la marcha."
+        }
+      },
+      {
+        "media": "imgs/projects/netherlords_loot.gif",
+        "title": {
+          "pt": "Loot que nunca se repete",
+          "en": "Loot that never repeats",
+          "es": "Botín que nunca se repite"
+        },
+        "text": {
+          "pt": "Armas e equipamentos gerados proceduralmente em eixos de qualidade e raridade, milhares de combinações. Itens queimam com a sua morte. Cartas são para sempre. Dois loops de progressão, uma obsessão.",
+          "en": "Procedurally generated weapons and gear across quality and rarity axes, thousands of combinations. Items burn with your death. Cards are forever. Two progression loops, one obsession.",
+          "es": "Armas y equipo generados proceduralmente en ejes de calidad y rareza, miles de combinaciones. Los objetos arden con tu muerte. Las cartas son para siempre. Dos bucles de progresión, una obsesión."
+        }
+      },
+      {
+        "media": "imgs/projects/netherlords_world.gif",
+        "title": {
+          "pt": "Um mundo erguido sobre a vida após a morte",
+          "en": "A world built on the afterlife",
+          "es": "Un mundo construido sobre el más allá"
+        },
+        "text": {
+          "pt": "Inspirado na literatura espírita e na Divina Comédia de Dante, o Nether é arquitetura em ruínas, névoa densa e luz escassa. Desça pelo Grande Cemitério, os Pântanos Chorosos, a Cidade dos Esquecidos, e enfrente os guardiões da sua ascensão.",
+          "en": "Inspired by spiritist literature and Dante's Divine Comedy, the Nether is decaying architecture, dense fog and scarce light. Descend through the Great Cemetery, the Weeping Swamps, the City of the Forgotten, and face the guardians that block your ascension.",
+          "es": "Inspirado en la literatura espírita y la Divina Comedia de Dante, el Nether es arquitectura en ruinas, niebla densa y luz escasa. Desciende por el Gran Cementerio, los Pantanos Llorosos, la Ciudad de los Olvidados, y enfrenta a los guardianes de tu ascensión."
+        }
+      }
+    ]
+  },
+  {
+    "id": "devilhunters",
+    "hidden": false,
+    "order": 2,
+    "title": "Devil Hunters",
+    "logo": "imgs/projects/devilhunters_logo.png",
+    "background": "imgs/projects/devilhunters_bg.jpg",
+    "pitch": {
+      "pt": "O ARPG de morte permanente no seu navegador. Cace demônios em hordas crescentes, sozinho ou com amigos na mesma sala. Grátis, sem instalar, no PC ou celular.",
+      "en": "The permadeath ARPG in your browser. Hunt demons in ever-growing hordes, solo or with friends in the same room. Free, no install, on PC or mobile.",
+      "es": "El ARPG de muerte permanente en tu navegador. Caza demonios en hordas crecientes, solo o con amigos en la misma sala. Gratis, sin instalar, en PC o móvil."
     },
-    "tech": ["UE5", "GAS", "MVVM", "Ninja Tools", "Logic Driver Pro"],
-    "media": [
+    "playLabel": { "pt": "", "en": "", "es": "" },
+    "stores": [
       {
-        "type": "img",
-        "path": "https://picsum.photos/800/600?random=1",
-        "title": "Late-Game Underworld Overlord"
+        "type": "web",
+        "url": "https://play.devilest.com",
+        "label": {
+          "pt": "Jogue no navegador agora",
+          "en": "Play in your browser now",
+          "es": "Juega en tu navegador ahora"
+        }
+      }
+    ],
+    "startMedia": { "type": "gif", "path": "imgs/projects/devilhunters_main.gif" },
+    "slides": [
+      {
+        "media": "imgs/projects/devilhunters_village.gif",
+        "title": {
+          "pt": "A vila do portal",
+          "en": "The portal village",
+          "es": "La aldea del portal"
+        },
+        "text": {
+          "pt": "Entre as caçadas, volte para a vila ao redor do portal. Converse com NPCs, invista em skills e prepare o próximo caçador antes de mergulhar de novo no caos.",
+          "en": "Between hunts, return to the village around the portal. Talk to NPCs, invest in skills, and prepare your next hunter before diving back into the chaos.",
+          "es": "Entre cacerías, vuelve a la aldea alrededor del portal. Habla con NPCs, invierte en habilidades y prepara a tu próximo cazador antes de volver a sumergirte en el caos."
+        }
       },
       {
-        "type": "img",
-        "path": "https://picsum.photos/800/600?random=2", 
-        "title": "Spiritual Realm Environment"
+        "media": "imgs/projects/devilhunters_permadeath.gif",
+        "title": {
+          "pt": "Morte permanente, ranking eterno",
+          "en": "Permanent death, eternal ranking",
+          "es": "Muerte permanente, ranking eterno"
+        },
+        "text": {
+          "pt": "Dá para chegar até o nível 100, mas tome muito cuidado: a morte é permanente. E nunca é o fim, crie um novo personagem e continue jogando. Mesmo morto, seu caçador segue para sempre no ranking dos desencarnados.",
+          "en": "You can climb all the way to level 100, but tread carefully: death is permanent. And it is never the end, create a new character and keep playing. Even dead, your hunter lives on forever in the rankings of the discarnate.",
+          "es": "Puedes llegar hasta el nivel 100, pero ten mucho cuidado: la muerte es permanente. Y nunca es el fin, crea un nuevo personaje y sigue jugando. Incluso muerto, tu cazador permanece para siempre en el ranking de los desencarnados."
+        }
       },
       {
-        "type": "gif",
-        "path": "https://picsum.photos/800/600?random=3",
-        "title": "Army Building Demo"
-      },
-      {
-        "type": "img",
-        "path": "https://picsum.photos/800/600?random=4",
-        "title": "Powered-Up Hero Build"
-      },
-      {
-        "type": "video",
-        "path": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-        "thumbnail": "https://picsum.photos/112/64?random=video1",
-        "title": "Technical Showcase Trailer"
+        "media": "imgs/projects/devilhunters_coop.gif",
+        "title": {
+          "pt": "Co-op por link de sala",
+          "en": "Co-op by room link",
+          "es": "Co-op por enlace de sala"
+        },
+        "text": {
+          "pt": "Chame um amigo com um único link. Vocês caem na mesma sala e enfrentam as hordas juntos, no navegador, sem conta, sem download, sem fricção.",
+          "en": "Invite a friend with a single link. You both drop into the same room and face the hordes together, in the browser, no account, no download, no friction.",
+          "es": "Invita a un amigo con un solo enlace. Ambos caen en la misma sala y enfrentan las hordas juntos, en el navegador, sin cuenta, sin descargas, sin fricción."
+        }
       }
     ]
   }
