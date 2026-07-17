@@ -7,9 +7,9 @@
     "logo": "imgs/projects/netherlords_logo.png",
     "background": "imgs/projects/netherlords_bg.jpg",
     "pitch": {
-      "pt": "Netherlords é um action roguelite de dark fantasy onde sua build é um deck de cartas.\n\nDesperte como uma alma perdida nas profundezas do mundo espiritual, abra caminho por hordas de espíritos caídos com um combate soulslike visceral, cace loot lendário e molde seu destino, carta por carta.",
-      "en": "Netherlords is a dark fantasy action roguelite where your build is a deck of cards.\n\nAwaken as a lost soul in the depths of the spiritual world, carve through hordes of fallen spirits with visceral soulslike combat, hunt legendary loot, and shape your destiny, card by card.",
-      "es": "Netherlords es un action roguelite de dark fantasy donde tu build es un mazo de cartas.\n\nDespierta como un alma perdida en las profundidades del mundo espiritual, ábrete paso entre hordas de espíritus caídos con un combate soulslike visceral, caza botín legendario y forja tu destino, carta a carta."
+      "pt": "Netherlords é um action roguelite de dark fantasy onde sua build é um deck de cartas.\nDesperte como uma alma perdida nas profundezas do mundo espiritual, abra caminho por hordas de espíritos caídos com um combate soulslike visceral, cace loot lendário e molde seu destino, carta por carta.",
+      "en": "Netherlords is a dark fantasy action roguelite where your build is a deck of cards.\nAwaken as a lost soul in the depths of the spiritual world, carve through hordes of fallen spirits with visceral soulslike combat, hunt legendary loot, and shape your destiny, card by card.",
+      "es": "Netherlords es un action roguelite de dark fantasy donde tu build es un mazo de cartas.\nDespierta como un alma perdida en las profundidades del mundo espiritual, ábrete paso entre hordas de espíritus caídos con un combate soulslike visceral, caza botín legendario y forja tu destino, carta a carta."
     },
     "playLabel": { "pt": "", "en": "", "es": "" },
     "stores": [
