@@ -87,11 +87,11 @@ console.log('\n📄 Creating production index.html...');
 // Copy and update index.html with minified references
 let indexContent = fs.readFileSync('index.html', 'utf8');
 
-// Replace .css with .min.css
-indexContent = indexContent.replace(/href="([^"]+)\.css"/g, 'href="$1.min.css"');
+// Replace .css with .min.css, preserving any ?v= cache-busting query.
+indexContent = indexContent.replace(/href="([^"?]+)\.css(\?[^"]*)?"/g, 'href="$1.min.css$2"');
 
-// Replace .js with .min.js (but not for CDN scripts)
-indexContent = indexContent.replace(/src="js\/([^"]+)\.js"/g, 'src="js/$1.min.js"');
+// Replace .js with .min.js (but not for CDN scripts), same query handling.
+indexContent = indexContent.replace(/src="js\/([^"?]+)\.js(\?[^"]*)?"/g, 'src="js/$1.min.js$2"');
 
 fs.writeFileSync('dist/index.html', indexContent);
 console.log('  ✓ Created dist/index.html');
