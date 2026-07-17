@@ -208,8 +208,10 @@
     color: var(--pc-cream);
     font-size: clamp(0.95rem, 1.4vw, 1.15rem);
     line-height: 1.7;
-    text-align: justify;
-    text-align-last: center;
+    /* Ragged right, not justified: the column is narrow enough that justifying
+       tore holes between the words. The surrounding .pc-start__left is centred
+       (logo, badge), so this has to state its own alignment. */
+    text-align: left;
     /* Honour the paragraph breaks (\n\n) authored in the pitch strings in
        projects.json. pre-line keeps newlines while still collapsing runs of
        spaces and wrapping normally. */
