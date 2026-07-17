@@ -78,6 +78,15 @@
     border-bottom: none;
 }
 
+.about-image {
+    text-align: center;
+}
+
+.about-image .social-links {
+    justify-content: center;
+    margin-top: var(--spacing-md);
+}
+
 /* About Responsive */
 @media (max-width: 768px) {
     .about {

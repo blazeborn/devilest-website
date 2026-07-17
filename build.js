@@ -39,9 +39,11 @@ const cssFiles = [
 
 // JS files to minify
 const jsFiles = [
+    { src: 'js/i18n.js', dest: 'dist/js/i18n.min.js' },
     { src: 'js/navigation.js', dest: 'dist/js/navigation.min.js' },
     { src: 'js/animations.js', dest: 'dist/js/animations.min.js' },
-    { src: 'js/carousel-loader.js', dest: 'dist/js/carousel-loader.min.js' },
+    { src: 'js/projects.js', dest: 'dist/js/projects.min.js' },
+    { src: 'js/contact.js', dest: 'dist/js/contact.min.js' },
     { src: 'js/three-bundle-loader.js', dest: 'dist/js/three-bundle-loader.min.js' },
     { src: 'js/fire-shader-lazy.js', dest: 'dist/js/fire-shader-lazy.min.js' }
 ];
@@ -141,11 +143,6 @@ try {
     
     copyRecursive('Projects', 'dist/Projects');
     console.log('  ✓ Copied Projects/');
-    
-    if (fs.existsSync('projects-carousel.html')) {
-        fs.copyFileSync('projects-carousel.html', 'dist/projects-carousel.html');
-        console.log('  ✓ Copied projects-carousel.html');
-    }
 } catch (error) {
     console.error('  ✗ Error copying files:', error.message);
 }

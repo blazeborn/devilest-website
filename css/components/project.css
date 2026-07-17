@@ -1,174 +1,549 @@
-/* Project Section */
+/* ==========================================================================
+   Project Section — inline sequential carousel
+   Identity is strict: only black (#0E0E0E / #161616), red (#CD3A1A) and
+   off-white (#E8E0D4). No blur, no large radii, no colored gradients.
+   Gig-poster / woodcut feel: hard borders, heavy uppercase type.
+   ========================================================================== */
+
 .project {
-    padding: 0rem 0rem;
-    background: radial-gradient(circle at center, #1a0a0a 0%, var(--bg-primary) 70%);
-}
-
-.project-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    text-align: center;
+    /* Full-bleed cinematic band — no outer container, arrows hug the edges. */
     padding: 0;
+    background: var(--pc-black);
 }
 
-.project h2 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--brand-red);
-    font-weight: var(--font-bold);
-}
-
-.project-hero {
-    background: linear-gradient(135deg, var(--overlay-red-light) 0%, var(--overlay-black) 100%);
-    padding: 4rem;
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--border-red-light);
-    margin-bottom: 3rem;
-    backdrop-filter: blur(10px);
-}
-
-.project-title {
-    font-size: 3rem;
-    color: #f9fafb;
-    margin-bottom: var(--spacing-xs);
-    font-weight: 800;
-}
-
-.project-subtitle {
-    font-size: 1.2rem;
-    color: var(--brand-red);
-    margin-bottom: var(--spacing-md);
-    font-weight: var(--font-medium);
-    letter-spacing: 1px;
-}
-
-.project-description {
-    font-size: 1.2rem;
-    line-height: var(--line-height-loose);
-    margin-bottom: 3rem;
-    color: var(--text-tertiary);
-}
-
-.tech-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: var(--spacing-sm);
-    margin: var(--spacing-md) 0;
-}
-
-.tech-tag {
-    background: var(--overlay-red-strong);
-    color: #f3f4f6;
-    padding: 0.8rem;
-    border-radius: var(--radius-md);
-    font-size: 0.9rem;
-    font-weight: var(--font-medium);
-    border: 1px solid var(--border-red-medium);
-}
-
-.inspiration-box {
-    background: var(--overlay-black-strong);
-    padding: var(--spacing-md);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-red-light);
-    margin-top: var(--spacing-md);
-}
-
-.inspiration-box h4 {
-    color: var(--brand-red);
-    margin-bottom: var(--spacing-sm);
-    font-size: 1.1rem;
-    font-weight: var(--font-semibold);
-}
-
-.inspiration-box p {
-    color: var(--text-muted);
-    line-height: var(--line-height-relaxed);
-    font-style: italic;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-md);
-}
-
-.project-card {
-    background: var(--overlay-red-light);
-    border: 1px solid var(--border-red-light);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-md);
-    text-decoration: none;
-    color: inherit;
-    transition: all var(--transition-fast);
+/* Stack of per-project carousels (one band per project, aligned vertically). */
+.projects-carousels {
     display: block;
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--border-red-strong);
-    background: var(--overlay-red-medium);
+/* Collapse the seam between stacked bands to a single hard red line. */
+.projects-carousels .pc + .pc {
+    border-top: none;
 }
 
-.project-card h3 {
-    color: #f3f4f6;
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-xs);
+.pc {
+    --pc-black: #0E0E0E;
+    --pc-black-2: #161616;
+    --pc-red: #CD3A1A;
+    --pc-cream: #E8E0D4;
+    --pc-band-h: 74dvh;
+    --pc-edge: 2px;
+
+    position: relative;
+    width: 100%;
+    height: var(--pc-band-h);
+    min-height: 520px;
+    overflow: hidden;
+    background: var(--pc-black);
+    border-top: var(--pc-edge) solid var(--pc-red);
+    border-bottom: var(--pc-edge) solid var(--pc-red);
+    color: var(--pc-cream);
+    font-family: var(--font-family);
+}
+
+.pc-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pc-cream);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
     font-weight: var(--font-bold);
 }
 
-.project-card .project-status {
-    display: inline-block;
-    background: rgba(59, 130, 246, 0.2);
-    color: #3b82f6;
-    padding: 0.3rem 0.8rem;
-    border-radius: var(--radius-sm);
+/* --- track / slides ------------------------------------------------------- */
+
+.pc-viewport {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    touch-action: pan-y;
+}
+
+.pc-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.pc-slide {
+    position: relative;
+    flex: 0 0 100%;
+    min-width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.pc-slide__bg {
+    position: absolute;
+    inset: 0;
+    /* background-image is set inline per slide (see bgLayer in projects.js) */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: var(--pc-black); /* fallback when art is missing (404) */
+}
+
+/* Black-only scrim for legibility. Start pages are weighted to the left
+   column; show pages get an even darkening behind the centered panel. */
+.pc-slide__scrim {
+    position: absolute;
+    inset: 0;
+    background: rgba(14, 14, 14, 0.72);
+}
+
+.pc-slide__scrim--start {
+    background: linear-gradient(
+        90deg,
+        rgba(14, 14, 14, 0.82) 0%,
+        rgba(14, 14, 14, 0.52) 32%,
+        rgba(14, 14, 14, 0.22) 62%,
+        rgba(14, 14, 14, 0.10) 100%
+    );
+}
+
+.pc-slide__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    /* Bottom padding just clears the minimal dot dashes. */
+    padding: clamp(1.25rem, 4vw, 3rem) clamp(3.5rem, 7vw, 6rem) clamp(1.5rem, 3vh, 2.5rem);
+}
+
+/* --- shared media window --------------------------------------------------- */
+
+.pc-media {
+    position: relative;
+    width: 100%;
+    background: var(--pc-black-2);
+    border: var(--pc-edge) solid var(--pc-cream);
+    overflow: hidden;
+}
+
+.pc-media--16x9 {
+    aspect-ratio: 16 / 9;
+}
+
+.pc-media__el {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.pc-media__ph {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     font-size: 0.85rem;
-    font-weight: var(--font-semibold);
-    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-bold);
+    color: var(--pc-cream);
+    opacity: 0.5;
 }
 
-.project-status.published {
-    background: rgba(34, 197, 94, 0.2);
-    color: #22c55e;
+/* --- starting page --------------------------------------------------------- */
+
+.pc-start {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
 }
 
-.project-status.prototype {
-    background: rgba(245, 158, 11, 0.2);
-    color: #f59e0b;
+.pc-start__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: clamp(1rem, 2.5vw, 1.75rem);
+    min-width: 0;
 }
 
-.project-status.academic {
-    background: rgba(168, 85, 247, 0.2);
-    color: #a855f7;
+.pc-logo {
+    max-width: 100%;
 }
 
-.project-card p {
-    color: var(--text-muted);
+.pc-logo__img {
+    display: block;
+    /* Cap by width (fills the column) with a generous height ceiling, so a
+       wide wordmark (Netherlords) and a squarer one (Devil Hunters) both
+       fill the space instead of the squarer one being throttled by height. */
+    max-width: 100%;
+    max-height: clamp(110px, 34vh, 320px);
+    width: auto;
+    height: auto;
+}
+
+.pc-logo__txt {
+    display: none;
+    white-space: nowrap;          /* title never wraps to two lines */
+    text-transform: uppercase;
+    font-weight: var(--font-black);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    color: var(--pc-cream);
+    font-size: clamp(1.6rem, 5.5vw, 3.4rem);
+}
+
+/* When there is no logo art, show the text title instead. */
+.pc-logo--text .pc-logo__img { display: none; }
+.pc-logo--text .pc-logo__txt { display: block; }
+
+.pc-start__pitch {
+    max-width: 46ch;
     margin: 0;
-    line-height: var(--line-height-normal);
+    color: var(--pc-cream);
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+    line-height: 1.7;
+    text-align: justify;
+    text-align-last: center;
+    /* Honour the paragraph breaks (\n\n) authored in the pitch strings in
+       projects.json. pre-line keeps newlines while still collapsing runs of
+       spaces and wrapping normally. */
+    white-space: pre-line;
 }
 
-/* Carousel Embed */
-.carousel-embed {
+.pc-start__right {
+    min-width: 0;
+}
+
+.pc-mediawin {
+    border-color: var(--pc-red);
+}
+
+/* --- show page: GIF fills the band, caption overlays on hover/tap --------- */
+
+/* Small even margin so the image sits just inside the band edges. */
+.pc-slide--show .pc-slide__inner {
+    height: 100%;
+    padding: clamp(14px, 2.4vh, 32px);
+    display: flex;
+}
+
+.pc-show {
     width: 100%;
     height: 100%;
 }
 
-.carousel-embed iframe {
+/* No frame — the media fills its box; object-fit: cover uses the max space. */
+.pc-show__media {
+    position: relative;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    background: var(--pc-black-2);
+    cursor: pointer;
+}
+
+.pc-show__media:focus-visible {
+    outline: var(--pc-edge) solid var(--pc-red);
+    outline-offset: calc(-1 * var(--pc-edge));
+}
+
+/* Caption: hidden by default, sits in front of the image, revealed on
+   hover (desktop) or when the media has .is-open (tap/click/keyboard). */
+.pc-show__caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: clamp(1rem, 3vw, 2rem) clamp(1.25rem, 4vw, 3rem) clamp(1.75rem, 4.5vh, 2.75rem);
+    background: linear-gradient(
+        to top,
+        rgba(14, 14, 14, 0.96) 0%,
+        rgba(14, 14, 14, 0.72) 55%,
+        rgba(14, 14, 14, 0) 100%
+    );
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+@media (hover: hover) {
+    .pc-show__media:hover .pc-show__caption {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.pc-show__media.is-open .pc-show__caption {
+    opacity: 1;
+    transform: none;
+}
+
+.pc-show__title {
+    margin: 0 0 0.4rem;
+    color: var(--pc-red);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: var(--font-black);
+    font-size: clamp(1.15rem, 2.4vw, 1.7rem);
+    line-height: 1.15;
+}
+
+.pc-show__text {
+    margin: 0;
+    max-width: 70ch;
+    color: var(--pc-cream);
+    font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+    line-height: 1.55;
+}
+
+/* Affordance so touch users know the image reveals text. Hidden while the
+   caption is showing to keep the frame clean. */
+.pc-show__hint {
+    position: absolute;
+    top: clamp(10px, 1.6vh, 16px);
+    right: clamp(10px, 1.6vw, 16px);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background: rgba(14, 14, 14, 0.7);
+    border: var(--pc-edge) solid var(--pc-red);
+    color: var(--pc-cream);
+    font-size: 1.5rem;
+    font-weight: var(--font-bold);
+    line-height: 1;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.pc-show__media.is-open .pc-show__hint {
+    transform: rotate(45deg);
+    background: var(--pc-red);
+    color: var(--pc-black);
+}
+
+@media (hover: hover) {
+    .pc-show__media:hover .pc-show__hint {
+        opacity: 0;
+    }
+}
+
+/* --- "Jogue agora" + store badges ----------------------------------------- */
+
+.pc-playnow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.pc-playnow__label {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: var(--font-bold);
+    font-size: 0.8rem;
+    color: var(--pc-red);
+}
+
+.pc-playnow__badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.pc-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    line-height: 0;
+    transition: transform var(--transition-fast);
+}
+
+.pc-badge:hover {
+    transform: translateY(-2px);
+}
+
+/* Coming-soon badge: an announcement, not a button. Must not lift on hover or
+   invite a click, since it goes nowhere. */
+.pc-badge--soon,
+.pc-badge--soon:hover {
+    transform: none;
+    cursor: default;
+}
+
+/* Official badge art (colored) — shown when the image loads. */
+.pc-badge__img {
+    display: block;
+    height: clamp(38px, 5vw, 48px);
+    width: auto;
+}
+
+/* Text fallback: brand-styled hard-bordered button. Used for web stores and
+   whenever an official badge image is missing (404). */
+.pc-badge__txt {
+    display: none;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: var(--font-bold);
+    font-size: 0.85rem;
+    padding: 0.65rem 1.1rem;
+    color: var(--pc-cream);
+    background: var(--pc-black);
+    border: var(--pc-edge) solid var(--pc-red);
+}
+
+.pc-badge--web .pc-badge__txt,
+.pc-badge--fallback .pc-badge__txt {
+    display: inline-block;
+}
+
+.pc-badge--web .pc-badge__txt {
+    color: var(--pc-black);
+    background: var(--pc-red);
+    border-color: var(--pc-red);
+}
+
+.pc-badge--soon .pc-badge__txt,
+.pc-badge--soon:hover .pc-badge__txt {
+    color: var(--pc-red);
+    background: transparent;
+    border-color: var(--pc-red);
+}
+
+.pc-badge--web:hover .pc-badge__txt,
+.pc-badge--fallback:hover .pc-badge__txt {
+    background: var(--pc-red);
+    color: var(--pc-black);
+}
+
+/* --- arrows (edge, vertically centered) ----------------------------------- */
+
+.pc-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(44px, 5vw, 68px);
+    height: clamp(64px, 10vw, 104px);
+    padding: 0;
+    background: rgba(14, 14, 14, 0.7);
+    color: var(--pc-cream);
+    border: var(--pc-edge) solid var(--pc-red);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1;
+    cursor: pointer;
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.pc-nav--prev { left: 0; border-left: none; }
+.pc-nav--next { right: 0; border-right: none; }
+
+.pc-nav:hover:not(:disabled) {
+    background: var(--pc-red);
+    color: var(--pc-black);
+}
+
+.pc-nav:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+/* --- dots ------------------------------------------------------------------ */
+
+.pc-dots {
+    position: absolute;
+    left: 50%;
+    bottom: clamp(0.5rem, 1.4vh, 0.9rem);
+    transform: translateX(-50%);
+    z-index: 5;
+    display: flex;
+    gap: 0.4rem;
+    max-width: 80%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Minimal dashes — a thin line per slide, active one in red. */
+.pc-dot {
+    width: 20px;
+    height: 2px;
+    padding: 0;
+    background: rgba(232, 224, 212, 0.3);
     border: none;
+    cursor: pointer;
+    transition: background var(--transition-fast);
 }
 
-/* Project Responsive */
-@media (max-width: 768px) {
-    .project {
-        padding: 4rem var(--spacing-sm) var(--spacing-md);
+.pc-dot:hover { background: rgba(232, 224, 212, 0.6); }
+
+.pc-dot.is-active { background: var(--pc-red); }
+
+/* --- mobile (<860px) ------------------------------------------------------- */
+
+@media (max-width: 860px) {
+    .pc {
+        --pc-band-h: 78dvh;
     }
 
-    .project-title {
-        font-size: 2.2rem;
+    .pc-slide__inner {
+        padding: clamp(1.25rem, 5vw, 2rem) clamp(2.75rem, 12vw, 3.5rem);
+    }
+
+    .pc-slide__scrim--start {
+        background: linear-gradient(
+            to bottom,
+            rgba(14, 14, 14, 0.78) 0%,
+            rgba(14, 14, 14, 0.55) 45%,
+            rgba(14, 14, 14, 0.35) 100%
+        );
+    }
+
+    /* Starting page: columns stack (logo/pitch/badges, then media). */
+    .pc-start {
+        grid-template-columns: 1fr;
+        gap: clamp(1.25rem, 5vw, 2rem);
+    }
+
+    /* Badges wrap naturally, centered (a single badge stays on one line;
+       multiple badges wrap to fit). */
+    .pc-playnow__badges {
+        gap: 0.6rem;
+    }
+
+    /* Arrows smaller but still hugging the edges. */
+    .pc-nav {
+        width: clamp(34px, 9vw, 44px);
+        height: clamp(52px, 14vw, 68px);
+        font-size: clamp(1.5rem, 7vw, 2rem);
+    }
+}
+
+/* --- reduced motion -------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .pc-track {
+        transition: none;
+    }
+
+    .pc-badge,
+    .pc-nav {
+        transition: none;
     }
 }

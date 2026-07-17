@@ -31,8 +31,7 @@ A modern, high-performance website for Devilest Game Studio featuring:
 
 ```
 devilest-website/
-├── index.html                    # Main website (130 lines)
-├── projects-carousel.html        # Project showcase component
+├── index.html                    # Main website
 ├── package.json                  # npm dependencies
 ├── build.js                      # Build/minification script
 │
@@ -54,7 +53,7 @@ devilest-website/
 │   ├── three-bundle-loader.js   # Three.js dependency manager
 │   ├── navigation.js            # Menu, scroll, navbar effects
 │   ├── animations.js            # Fade-in intersection observer
-│   ├── carousel-loader.js       # Project carousel iframe handler
+│   ├── projects.js              # Inline projects carousel (renders projects.json)
 │   └── fire-shader-lazy.js      # Lazy-loaded fire effect (~250 lines)
 │
 ├── Projects/
