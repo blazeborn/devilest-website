@@ -51,7 +51,7 @@
             'carousel.aria.dots': 'Selecionar slide',
             'carousel.aria.goto': 'Ir para:',
             'carousel.aria.project': 'Projeto:',
-            'carousel.aria.moreInfo': 'Mostrar descrição'
+            'carousel.aria.moreInfo': 'Mostrar ou ocultar descrição'
         },
         en: {
             'nav.home': 'Home',
@@ -92,7 +92,7 @@
             'carousel.aria.dots': 'Select slide',
             'carousel.aria.goto': 'Go to:',
             'carousel.aria.project': 'Project:',
-            'carousel.aria.moreInfo': 'Show description'
+            'carousel.aria.moreInfo': 'Show or hide description'
         },
         es: {
             'nav.home': 'Inicio',
@@ -133,7 +133,7 @@
             'carousel.aria.dots': 'Seleccionar diapositiva',
             'carousel.aria.goto': 'Ir a:',
             'carousel.aria.project': 'Proyecto:',
-            'carousel.aria.moreInfo': 'Mostrar descripción'
+            'carousel.aria.moreInfo': 'Mostrar u ocultar descripción'
         }
     };
 

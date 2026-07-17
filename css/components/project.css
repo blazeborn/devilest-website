@@ -253,8 +253,10 @@
     outline-offset: calc(-1 * var(--pc-edge));
 }
 
-/* Caption: hidden by default, sits in front of the image, revealed on
-   hover (desktop) or when the media has .is-open (tap/click/keyboard). */
+/* Caption: shown by default, sitting in front of the image. Clicking the media
+   dismisses it (.is-hidden) to uncover the art, and clicking again brings it
+   back. Hover does not reveal or dismiss anything — the text is already there,
+   and having it vanish as the pointer crossed the frame would read as a bug. */
 .pc-show__caption {
     position: absolute;
     left: 0;
@@ -268,22 +270,15 @@
         rgba(14, 14, 14, 0.72) 55%,
         rgba(14, 14, 14, 0) 100%
     );
-    opacity: 0;
-    transform: translateY(10px);
+    opacity: 1;
+    transform: none;
     transition: opacity 0.3s ease, transform 0.3s ease;
     pointer-events: none;
 }
 
-@media (hover: hover) {
-    .pc-show__media:hover .pc-show__caption {
-        opacity: 1;
-        transform: none;
-    }
-}
-
-.pc-show__media.is-open .pc-show__caption {
-    opacity: 1;
-    transform: none;
+.pc-show__media.is-hidden .pc-show__caption {
+    opacity: 0;
+    transform: translateY(10px);
 }
 
 .pc-show__title {
@@ -304,8 +299,8 @@
     line-height: 1.55;
 }
 
-/* Affordance so touch users know the image reveals text. Hidden while the
-   caption is showing to keep the frame clean. */
+/* Affordance for the dismiss/restore toggle. Reads as an x while the caption
+   is up (click to clear it) and as a + once it is gone (click to bring back). */
 .pc-show__hint {
     position: absolute;
     top: clamp(10px, 1.6vh, 16px);
@@ -326,16 +321,22 @@
     transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
 
-.pc-show__media.is-open .pc-show__hint {
-    transform: rotate(45deg);
+/* Only the glyph turns (+ becomes x). Rotating the box would tip the square
+   into a diamond and push its corners past the frame. */
+.pc-show__hint-glyph {
+    display: block;
+    font-style: normal;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.pc-show__media:not(.is-hidden) .pc-show__hint {
     background: var(--pc-red);
     color: var(--pc-black);
 }
 
-@media (hover: hover) {
-    .pc-show__media:hover .pc-show__hint {
-        opacity: 0;
-    }
+.pc-show__media:not(.is-hidden) .pc-show__hint-glyph {
+    transform: rotate(45deg);
 }
 
 /* --- "Jogue agora" + store badges ----------------------------------------- */
@@ -500,6 +501,23 @@
 @media (max-width: 860px) {
     .pc {
         --pc-band-h: 78dvh;
+    }
+
+    /* Stacked, the starting page (logo + pitch + badge + 16:9 window) can run
+       taller than the band. With a fixed height the slide centres its content
+       and overflow:hidden then eats it at BOTH ends, clipping the logo off the
+       top. On narrow screens let the band be content-driven instead: the band
+       keeps --pc-band-h as a floor, and grows when the copy needs it. Slides
+       stay equal height because the flex track stretches them to the tallest. */
+    .pc,
+    .pc-viewport,
+    .pc-track,
+    .pc-slide {
+        height: auto;
+    }
+
+    .pc-slide {
+        min-height: var(--pc-band-h);
     }
 
     .pc-slide__inner {

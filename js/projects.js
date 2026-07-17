@@ -187,7 +187,7 @@
                   (title ? '<h3 class="pc-show__title">' + esc(title) + '</h3>' : '') +
                   (text ? '<p class="pc-show__text">' + esc(text) + '</p>' : '') +
               '</div>' +
-              '<span class="pc-show__hint" aria-hidden="true">+</span>'
+              '<span class="pc-show__hint" aria-hidden="true"><i class="pc-show__hint-glyph">+</i></span>'
             : '';
         return '' +
         '<article class="pc-slide pc-slide--show" role="group" aria-roledescription="slide" aria-label="' +
@@ -273,18 +273,19 @@
         if (slides.length > 1) wire(band, slides.length);
     }
 
-    // Show-page captions: revealed on hover via CSS; here we make them
-    // toggle on tap/click and keyboard (Enter/Space) for touch + a11y.
+    // Show-page captions: visible by default (see project.css). Clicking or
+    // pressing Enter/Space dismisses the caption to uncover the art, and does
+    // the same in reverse. Starts expanded, so aria-expanded starts true.
     function wireCaptions(scope) {
         var medias = scope.querySelectorAll('.pc-show__media[data-caption]');
         Array.prototype.forEach.call(medias, function (m) {
             m.setAttribute('role', 'button');
             m.setAttribute('tabindex', '0');
-            m.setAttribute('aria-expanded', 'false');
-            m.setAttribute('aria-label', T('carousel.aria.moreInfo', 'Mostrar descrição'));
+            m.setAttribute('aria-expanded', 'true');
+            m.setAttribute('aria-label', T('carousel.aria.moreInfo', 'Mostrar ou ocultar descrição'));
             function toggle() {
-                var open = m.classList.toggle('is-open');
-                m.setAttribute('aria-expanded', open ? 'true' : 'false');
+                var hidden = m.classList.toggle('is-hidden');
+                m.setAttribute('aria-expanded', hidden ? 'false' : 'true');
             }
             m.addEventListener('click', toggle);
             m.addEventListener('keydown', function (e) {
