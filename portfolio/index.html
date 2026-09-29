@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitor Silvestre - Technical Game Designer</title>
+    <meta name="description" content="Technical Game Designer portfolio: combat, gameplay systems and Blueprint work in Unreal Engine 5.">
+    <link rel="icon" href="../imgs/DevilestLogo_v2_Small.png">
+
+    <link rel="stylesheet" href="../css/variables.css?v=20260926-1">
+    <link rel="stylesheet" href="../css/base.css?v=20260926-1">
+    <link rel="stylesheet" href="../css/components/navbar.css?v=20260926-1">
+    <link rel="stylesheet" href="../css/components/portfolio.css?v=20260926-1">
+</head>
+<body class="pf">
+
+    <!-- Navigation (same component as the main site) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../"><img src="../imgs/DevilestLogo_v2_Small.png" alt="DEVILEST" class="logo"></a>
+            <ul class="nav-menu">
+                <li><a href="../#home" class="nav-link" data-i18n="nav.home">Home</a></li>
+                <li><a href="../#about" class="nav-link" data-i18n="nav.studio">Studio</a></li>
+                <li><a href="../#project" class="nav-link" data-i18n="nav.game">Games</a></li>
+                <li><a href="../#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+    <header id="top" class="pf-hero">
+        <div class="pf-wrap">
+            <div class="pf-hero__id fade-in">
+                <img src="../imgs/Founder.png" alt="Vitor Silvestre" class="pf-hero__photo" width="112" height="112">
+                <div>
+                    <span class="pf-kicker">Portfolio</span>
+                    <h1 class="pf-hero__name">Vitor Silvestre</h1>
+                    <div class="pf-hero__role">Technical Game Designer &mdash; Combat, Systems &amp; UI</div>
+                </div>
+            </div>
+            <div class="pf-hero__text fade-in">
+                <p>Technical Game Designer with <strong>10+ years</strong> in game development: formal game design education, freelance projects, a published Unreal Marketplace plugin, and <strong>AAA contracts</strong> on Fortnite, DC Worlds Collide and Apex Legends.</p>
+                <p>Currently building <strong>Netherlords</strong> solo in UE5, with C++ for core systems and Blueprints for gameplay logic, abilities, data setup and UI: combat on GAS, enemy AI with Logic Driver Pro, procedural levels with PCG and World Partition, and UI with MVVM and CommonUI.</p>
+                <p>A lifelong player with thousands of hours across hack-and-slash, ARPGs, competitive shooters and strategy games, with a design focus on <strong>responsive, readable combat</strong>.</p>
+            </div>
+            <nav class="pf-index fade-in" aria-label="Page sections">
+                <div class="pf-index__group">
+                    <a class="pf-index__main" href="#netherlords">Netherlords</a>
+                    <div class="pf-index__subs">
+                        <a href="#case-combat">Combat</a>
+                        <a href="#case-systems">Progression</a>
+                        <a href="#case-world">World</a>
+                    </div>
+                </div>
+                <div class="pf-index__group">
+                    <a class="pf-index__main" href="#bugs">Bug Hunts</a>
+                    <div class="pf-index__subs">
+                        <span>Method and cases</span>
+                    </div>
+                </div>
+                <div class="pf-index__group">
+                    <a class="pf-index__main" href="#earlier">Earlier Work</a>
+                    <div class="pf-index__subs">
+                        <a href="#dcwc">DC Worlds Collide</a>
+                        <a href="#fortnite">Fortnite</a>
+                        <a href="#notrealcombat">NotRealCombat</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="pf-cta fade-in">
+                <a href="Vitor_Silvestre_CV.pdf" target="_blank" rel="noopener" class="cta-button cta-secondary">Resume (PDF)</a>
+                <a href="https://layers.to/notrealvitor" target="_blank" rel="noopener" class="cta-button cta-secondary">UI Portfolio</a>
+                <a href="https://www.linkedin.com/in/notrealvitor/" target="_blank" rel="noopener" class="cta-button cta-secondary">LinkedIn</a>
+            </div>
+            <div class="pf-stats fade-in">
+                <div class="pf-stat"><b>Freelance</b><span>Fully remote career with teams in Brazil and the US, from quest scripting and a visual novel to non-game Unreal work, plus gameplay and combat work on indie and community projects</span></div>
+                <div class="pf-stat"><b>AAA Contractor</b><span>Fortnite &middot; DC Worlds Collide &middot; Apex Legends. Through Globant, placed on three consecutive AAA projects.</span></div>
+                <div class="pf-stat"><b>Self-Published Projects</b><span>NotRealCombat on the Unreal Marketplace and the upcoming Netherlords, with end-to-end ownership across design, code, art, animation and audio</span></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= NETHERLORDS ================= -->
+    <section id="netherlords" class="pf-section pf-section--alt">
+        <div class="pf-wrap">
+            <h2 class="pf-h2">Featured Project</h2>
+            <span class="pf-kicker pf-kicker--sub">Netherlords &middot; Solo Developer &middot; In Development since Aug 2025</span>
+            <p class="pf-lead">A dark fantasy action roguelite where your build is a deck of cards. Carve through hordes of fallen souls with soulslike combat, hunt for loot and shape each run card by card. Inspired by Diablo II, Dark Souls and Vampire Survivors, built solo in Unreal Engine 5.</p>
+            <p class="pf-lead">Netherlords is my combat design study: after years of experience, I'm taking a game from zero to release to consolidate that experience and show what I can build end to end.</p>
+
+            <div class="pf-tags pf-tags--stack">
+                <span class="pf-tag">Unreal Engine 5</span>
+                <span class="pf-tag">Blueprints</span>
+                <span class="pf-tag">GAS</span>
+                <span class="pf-tag">C++</span>
+                <span class="pf-tag">PCG</span>
+                <span class="pf-tag">State Machines</span>
+                <span class="pf-tag">MVVM</span>
+                <span class="pf-tag">CommonUI</span>
+            </div>
+            <h3 class="pf-subhead">Pillars</h3>
+            <div class="pf-pillar">
+                <div>
+                    <b>Gameplay first</b>
+                    <p>Core mechanics, controls and the combat loop come before story, art and polish. The first playtests evaluated the raw gameplay, with VFX, sound and narrative kept low priority.</p>
+                </div>
+                <div>
+                    <b>Variation</b>
+                    <p>Items, weapons, monsters and elites are data-driven from tables that roll a vast range of variations and modifiers. Runtime PCG and other procedural techniques make exploration feel new every run.</p>
+                </div>
+                <div>
+                    <b>Intense atmosphere</b>
+                    <p>Optimized fluid simulations, dramatic lighting and haunting locations, grounded in Spiritist philosophy and Dantesque literature.</p>
+                </div>
+            </div>
+            <p class="pf-next"><b>Next:</b> controller-first UI with CommonUI and Enhanced Input, options and multi-character saves, a first-hour onboarding pass, shrine loop, new enemy abilities (ranged, revive, boss moves), balancing and the Steam page with a trailer and a demo.</p>
+
+            <!-- ===== CASE 1: COMBAT =====
+                 Media: swap each pf-media--ph div for
+                 <div class="pf-media"><video src="media/xxx.mp4" autoplay muted loop playsinline controls></video></div>
+                 <div class="pf-media pf-media--graph"><img src="media/xxx.png" alt="..."></div> -->
+            <article class="pf-case" id="case-combat">
+                <div class="pf-case__head">
+                    <h3 class="pf-case__title">Combat: Weapons &amp; Moveset Pipeline</h3>
+                    <span class="pf-status pf-status--live">Live</span>
+                </div>
+                <div class="pf-case__body">
+                    <div><span class="pf-case__label">Goal</span><p>Combat needs variation to keep players engaged, with enough options to stay fun over long sessions.</p></div>
+                    <div><span class="pf-case__label">Problem</span><p>A large variety of weapons, each playing differently enough to change how the game is played: 15 weapon bases with their own combos and hybrid attribute scaling, without per-weapon code.</p></div>
+                    <div><span class="pf-case__label">Solution</span>
+                        <ul>
+                            <li><strong>Combo growth.</strong> Each weapon base has combos bound to GAS abilities. The moveset starts at 2 hits and grows to 5 with use, rewarding players who stick with a weapon.</li>
+                            <li><strong>Attribute scaling.</strong> Damage scales with Strength, Dexterity and Intelligence. Some weapons scale best with combined stats, encouraging new combinations of stats and weapons.</li>
+                            <li><strong>On-hit effects.</strong> Multiple Gameplay Effects or Abilities can be applied on hit from the timeline, such as hit stun, whose duration is calculated from the damage received.</li>
+                            <li><strong>Moveset pipeline.</strong> From ability to hit reaction.<ol class="pf-flow"><li><code>AbilityBase</code></li><li><code>ComboBase</code></li><li>Moveset Data Asset</li><li>Anim Montage</li><li>Timeline notifies<small>hitbox &middot; combo window &middot; FX</small></li><li>On-hit Gameplay Effects</li><li><code>CharacterBase</code></li><li><code>EnemyBase</code></li><li>Specific enemy</li></ol></li>
+                        </ul>
+                    </div>
+                    <div><span class="pf-case__label">Result</span><p>All weapons run on a <strong>single implementation</strong>, only animations and data change.</p><p>A new weapon is a base mesh (skeletal or static), its combo animations, material, quality, rarity, affixes and scaling coefficients for Strength, Dexterity and Intelligence.</p></div>
+                    <div><span class="pf-case__label pf-case__label--next">Next</span><p>Elemental areas where enemies have attack strengths and defense weaknesses, pushing players to swap gear per area.</p><p>More animations and a timing polish pass on combos.</p></div>
+                    <div class="pf-tags"><span class="pf-tag pf-tag--sm">GAS</span><span class="pf-tag pf-tag--sm">Execution Calc</span><span class="pf-tag pf-tag--sm">Anim Montages</span><span class="pf-tag pf-tag--sm">Gameplay Effects</span></div>
+                </div>
+                <div class="pf-case__media">
+                    <figure><div class="pf-media"><video src="media/nl_weapon_attacks.mp4" poster="media/nl_weapon_attacks_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">Weapon combos and damage numbers in play</figcaption></figure>
+                    <figure><div class="pf-media pf-media--graph pf-media--auto"><video src="media/nl_timeline_notifies.mp4" poster="media/nl_timeline_notifies_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">Montage timeline driving hitboxes and combo windows</figcaption></figure>
+                    <figure><div class="pf-media pf-media--graph pf-media--auto"><video src="media/nl_combo_gas.mp4" poster="media/nl_combo_gas_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">Combo and base Gameplay Ability graphs</figcaption></figure>
+                </div>
+            </article>
+
+            <!-- ===== CASE 2: SYSTEMS ===== -->
+            <article class="pf-case" id="case-systems">
+                <div class="pf-case__head">
+                    <h3 class="pf-case__title">Progression: Level, Gear &amp; Cards</h3>
+                    <span class="pf-status pf-status--live">Live</span>
+                </div>
+                <div class="pf-case__body">
+                    <div><span class="pf-case__label">Goal</span><p>Varied items and progression so each run feels different, and players build their own story from the gear they find.</p></div>
+                    <div><span class="pf-case__label">Problem</span><p>One developer has to author and balance enough variation to sustain replayability.</p></div>
+                    <div><span class="pf-case__label">Solution</span>
+                        <ul>
+                            <li><strong>Item pool.</strong> 15 weapon bases, 10 rings, 10 armors, 10 amulets and 22 consumables.</li>
+                            <li><strong>Quality and rarity.</strong> 3 quality tiers &times; 4 rarities. Gear rolls 1 to 6 affixes from a pool of 55, depending on rarity.</li>
+                            <li><strong>Data-driven.</strong> Everything is defined in spreadsheet tables (tiers, value ranges, item level, weights, allowed item types) imported as Data Tables, simple to edit and analyze.</li>
+                            <li><strong>Level and gear.</strong> Level-ups grant attributes and a card pick. Gear is also a major part of progression, granting important stats.</li>
+                        </ul>
+                    </div>
+                    <div><span class="pf-case__label">Result</span><p>Itemization, progression and balance are very time-consuming, and as a solo developer I need to iterate <strong>without rework</strong>. With items as data in Data Tables, I can tune several items across several tables at the same time.</p></div>
+                    <div><span class="pf-case__label pf-case__label--next">Next</span><p>Instant level-ups break immersion, while shrine-only level-ups (bonfire-style) can leave players stuck in an open world. Well-placed shrines plus better tutorials and NPC guidance could solve both.</p></div>
+                    <div class="pf-tags"><span class="pf-tag pf-tag--sm">Systems Design</span><span class="pf-tag pf-tag--sm">Data Tables</span><span class="pf-tag pf-tag--sm">Procedural Loot</span><span class="pf-tag pf-tag--sm">Progression</span></div>
+                </div>
+                <div class="pf-case__media">
+                    <figure><div class="pf-media pf-media--auto"><video src="media/nl_chests.mp4" poster="media/nl_chests_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">Chests and item drops</figcaption></figure>
+                    <figure><div class="pf-media"><video src="media/nl_equip_attributes.mp4" poster="media/nl_equip_attributes_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">Equipping an item updates attributes live</figcaption></figure>
+                    <figure><div class="pf-media pf-media--graph pf-media--auto"><img src="media/affix_table.png" alt="Affix pool table: tiers, value ranges, item level, weights, rarity and allowed item types"></div><figcaption class="pf-figcap">Affix pool table</figcaption></figure>
+                    <figure><div class="pf-media"><video src="media/nl_attribute_points.mp4" poster="media/nl_attribute_points_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">Spending attribute points on level up</figcaption></figure>
+                    <figure><div class="pf-media"><video src="media/nl_deck_builder.mp4" poster="media/nl_deck_builder_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">Deck builder: editing the Ascension Card deck between runs</figcaption></figure>
+                </div>
+            </article>
+
+            <!-- ===== CASE 3: WORLD ===== -->
+            <article class="pf-case" id="case-world">
+                <div class="pf-case__head">
+                    <h3 class="pf-case__title">World: Enemies &amp; PCG</h3>
+                    <span class="pf-status pf-status--live">Live</span>
+                    <span class="pf-status pf-status--wip">AI in progress</span>
+                </div>
+                <div class="pf-case__body">
+                    <div><span class="pf-case__label">Goal</span><p>Knowing exactly where everything is gets boring, but pure randomness is unreadable. Each area rerolls within its own rules, so players can still <strong>anticipate</strong> where enemies spawn, what they drop and how they fight, with constant pressure across a large map and no wasted performance.</p></div>
+                    <div><span class="pf-case__label">Problem</span><p>Enemies spawn all the time across the whole map, and building and animating many enemy types is costly for one person.</p></div>
+                    <div><span class="pf-case__label">Solution</span>
+                        <ul>
+                            <li><strong>Shared skeleton.</strong> The player and many common enemies share the main skeleton (retargeted, some hand-skinned in Blender), so GAS abilities are reused. Custom skeletons are also supported, though they need their own animations and movesets.</li>
+                            <li><strong>State machine AI.</strong> Enemies run on Logic Driver Pro state machines and seek and hold an ideal distance from the player. State machines make each enemy's decisions easier to visualize and organize. Experienced with Behavior Trees, I chose state machines for this project to test them as an alternative.</li>
+                            <li><strong>Spawns and elites.</strong> Spawn level and elite chance come from tables, currently scaled to the player's level. Elites can roll extra bonuses such as speed or extra health, sometimes both. They are the real threat, regular enemies alone should not be a strong danger.</li>
+                            <li><strong>Safe home.</strong> The starting area is fixed, with free loot, planned as the hub for NPC services such as quests and trade. The rest of the map is built to be rerolled every run.</li>
+                            <li><strong>Performance.</strong> A dormancy component switches off enemies far from the player, and World Partition unloads the ones that are very far away.</li>
+                            <li><strong>PCG.</strong> Stock nodes handle most spawning, plus a custom node that spawns actor Blueprints so each piece can be modified.</li>
+                        </ul>
+                    </div>
+                    <div><span class="pf-case__label">Result</span><p>Building a world solo means everything has to be automated and simple. PCG covers much of it, and <strong>nothing is hardcoded</strong>, every solution works on a new map as-is.</p></div>
+                    <div><span class="pf-case__label pf-case__label--next">Next</span><p>Reconsidering enemy level based on the player (Vampire Survivors) versus the area (Diablo II), more areas, and profiling passes to improve performance.</p></div>
+                    <div class="pf-tags"><span class="pf-tag pf-tag--sm">Encounter Design</span><span class="pf-tag pf-tag--sm">PCG</span><span class="pf-tag pf-tag--sm">World Partition</span><span class="pf-tag pf-tag--sm">Logic Driver Pro</span></div>
+                </div>
+                <div class="pf-case__media">
+                    <figure><div class="pf-media pf-media--auto"><video src="media/nl_enemy_variety.mp4" poster="media/nl_enemy_variety_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">Enemy variety, with some types sharing skeletons and abilities</figcaption></figure>
+                    <figure><div class="pf-media pf-media--auto pf-media--graph"><video src="media/nl_state_machine.mp4" poster="media/nl_state_machine_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">Logic Driver Pro state machine at runtime</figcaption></figure>
+                    <figure><div class="pf-media pf-media--auto"><video src="media/nl_spawners.mp4" poster="media/nl_spawners_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">Spawners across the starting area</figcaption></figure>
+                    <figure><div class="pf-media pf-media--auto pf-media--graph"><video src="media/nl_map_overview.mp4" poster="media/nl_map_overview_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">Map in the editor with PCG volumes and World Partition</figcaption></figure>
+                    <figure><div class="pf-media pf-media--auto"><video src="media/nl_pcg_generations.mp4" poster="media/nl_pcg_generations_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">PCG regenerating an area</figcaption></figure>
+                    <figure><div class="pf-media pf-media--auto pf-media--graph"><video src="media/nl_pcg_graph.mp4" poster="media/nl_pcg_graph_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">PCG graph with the custom Blueprint spawner</figcaption></figure>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ================= BUG HUNTS ================= -->
+    <section id="bugs" class="pf-section">
+        <div class="pf-wrap">
+            <span class="pf-kicker">Debugging</span>
+            <h2 class="pf-h2">Bug Hunts</h2>
+            <ul class="pf-steps">
+                <li><b>Reproduce</b>Playtest until it is clear how the issue happens.</li>
+                <li><b>Investigate</b>Pick the right tool: breakpoints (C++ or Blueprint), crash logs, Unreal Insights, Widget Reflector, Reference Viewer, built-in or custom debuggers, or Print String.</li>
+                <li><b>Fix</b>Weigh each possible fix against its impact on other systems before it goes in.</li>
+            </ul>
+            <h3 class="pf-subhead">Examples</h3>
+            <div class="pf-bugs">
+                <div class="pf-bug">
+                    <h3>Enemies ignored the player</h3>
+                    <p><b>Issue</b>After refactoring the player and enemies into separate parent classes (both still derived from the same C++ base), enemies stopped reacting to the player.</p>
+                    <p><b>Investigation</b>The Gameplay Debugger's perception view showed enemies seeing the player, but nothing was triggered.</p>
+                    <p><b>Root cause</b>The player character lost its <code>AIPerceptionStimuliSource</code> in the refactor, so it was never registered as a stimulus.</p>
+                    <p><b>Fix</b>Added the stimuli source back to the player character.</p>
+                </div>
+                <div class="pf-bug">
+                    <h3>Regen effect silently inhibited</h3>
+                    <p><b>Issue</b>Health, Stamina and Mana regen weren't applying, and with one effect per resource they were hard to track.</p>
+                    <p><b>Investigation</b>The GAS Debugger showed the effect applied to the character but flagged as <code>!!!Inhibited</code>.</p>
+                    <p><b>Root cause</b><code>Period</code> was set to 0 instead of left unset, and periodic ticking interfered with the MMC scaling regen from attributes.</p>
+                    <p><b>Fix</b>Split regen into two effects: one for the tick, one for attribute scaling.</p>
+                </div>
+                <div class="pf-bug">
+                    <h3>Damage not matching the formula</h3>
+                    <p><b>Issue</b>Damage dealt didn't match what the formula should produce. The execution calculates:</p>
+                    <pre class="pf-formula">Raw = WeaponBase + (STR&times;STRScale + DEX&times;DEXScale + INT&times;INTScale) &times; WeaponBase / 100
+Physical = Raw &times; (1 &minus; Defense / (Defense + 100))</pre>
+                    <p>plus elemental damage, each reduced by its own resistance.</p>
+                    <p><b>Investigation</b>Traced back every input to the damage effect: the captured attributes (weapon base, Strength, Dexterity, Intelligence, weapon scaling, target defense), the SetByCaller values and which effect sets each one. Used the GAS Debugger, breakpoints, and the execution's log line that prints every term of the formula.</p>
+                    <p><b>Root cause</b>Bonus modifiers feeding the calculation were applied as <code>Add (Base)</code>, so each recalculation of the base value overwrote them.</p>
+                    <p><b>Fix</b>Switched those modifiers to <code>Add (Final)</code>.</p>
+                </div>
+                <div class="pf-bug">
+                    <h3>Ranged enemies attacking up close</h3>
+                    <p><b>Issue</b>Ranged enemies closed in and attacked from melee range, throwing away their advantage.</p>
+                    <p><b>Investigation</b>Reproduced it and watched the Logic Driver Pro state machine at runtime. Enemies stayed locked at the closest distance instead of seeking one that suited their moveset.</p>
+                    <p><b>Fix</b>Preferred combat distance is now derived at runtime from the enemy's granted abilities. Each ability declares its own valid range band in the data table, and the AI positions itself where its current moveset is actually usable. Enemies are table-driven, so behaviour changes per creature without touching a single Blueprint.</p>
+                </div>
+                <div class="pf-bug">
+                    <h3>Startup crash in packaged builds (v0.8)</h3>
+                    <p><b>Issue</b>In some cases the game crashed when loading the gameplay map, only in packaged builds.</p>
+                    <p><b>Investigation</b>Packaged a Development build to get crash logs, which pointed to specific skeletal meshes.</p>
+                    <p><b>Root cause</b>Skeletal meshes using the GPU Skin Cache on the non-Nanite Virtual Shadow Map path.</p>
+                    <p><b>Fixes evaluated</b>Disabling shadows and then Skin Cache on those meshes stopped the crash, but at a visual and performance cost.</p>
+                    <p><b>Fix</b>Enabled Nanite on those meshes, which kept the visuals and can improve performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= EARLIER WORK ================= -->
+    <section id="earlier" class="pf-section pf-section--alt">
+        <div class="pf-wrap">
+            <span class="pf-kicker">Before Netherlords</span>
+            <h2 class="pf-h2">Earlier Work</h2>
+
+            <!-- ===== DC WORLDS COLLIDE ===== -->
+            <article class="pf-case" id="dcwc">
+                <div class="pf-case__head pf-case__head--stack">
+                    <span class="pf-kicker">Warner Bros. Games &middot; Tech Combat Designer &middot; via Globant &middot; 2024&ndash;2025</span>
+                    <h3 class="pf-case__title">DC Worlds Collide</h3>
+                </div>
+                <div class="pf-case__body">
+                    <div><span class="pf-case__label">Characters implemented</span><p>Mister Terrific, Swamp Thing and Krypto: full gameplay implementation, from skill logic to hooking up the existing art assets.</p></div>
+                    <div><span class="pf-case__label">What I did</span>
+                        <ul>
+                            <li>Implemented characters, artifacts, reinforcements, skills, badges, items and status effects.</li>
+                            <li>Developed character skills in Lua and added functions to the main combat library to support new gameplay features.</li>
+                            <li>Designed Trial challenges and combat scenarios for characters.</li>
+                            <li>Worked closely with Design, Engineering, Art, FX and UI on visuals, performance and gameplay feel.</li>
+                            <li>Testing and debugging, tool usability improvements and technical documentation.</li>
+                        </ul>
+                    </div>
+                    <div class="pf-tags"><span class="pf-tag pf-tag--sm">Unity</span><span class="pf-tag pf-tag--sm">Lua</span><span class="pf-tag pf-tag--sm">Combat Design</span><span class="pf-tag pf-tag--sm">Perforce</span></div>
+                </div>
+                <div class="pf-case__media">
+                    <figure><div class="pf-media"><video src="media/dcwc.mp4" poster="media/dcwc_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">Characters I implemented. Footage from the official DC Worlds Collide YouTube channel</figcaption></figure>
+                </div>
+            </article>
+
+            <!-- ===== FORTNITE ===== -->
+            <article class="pf-case" id="fortnite">
+                <div class="pf-case__head pf-case__head--stack">
+                    <span class="pf-kicker">Epic Games &middot; Tech UI &middot; via Globant &middot; 2023&ndash;2024</span>
+                    <h3 class="pf-case__title">Fortnite</h3>
+                </div>
+                <div class="pf-case__body">
+                    <div><span class="pf-case__label">Role</span><p>Tech UI on a live AAA title, working alongside hundreds of people.</p></div>
+                    <div><span class="pf-case__label">What I did</span>
+                        <ul>
+                            <li>25+ Tech UI tickets completed, bug fixes and implementations.</li>
+                            <li>UI in Unreal Engine 5 with Blueprints, UMG and the MVVM framework.</li>
+                            <li>Read, debugged and modified C++ code.</li>
+                            <li>Clear, tested and documented work, with constant communication across disciplines, leads and directors.</li>
+                        </ul>
+                    </div>
+                    <div class="pf-tags"><span class="pf-tag pf-tag--sm">Unreal Engine 5</span><span class="pf-tag pf-tag--sm">UMG</span><span class="pf-tag pf-tag--sm">MVVM</span><span class="pf-tag pf-tag--sm">C++</span></div>
+                    <div class="pf-cta"><a href="https://layers.to/notrealvitor" target="_blank" rel="noopener" class="cta-button cta-secondary">UI Portfolio</a></div>
+                </div>
+                <div class="pf-case__media pf-case__media--pair">
+                    <figure><div class="pf-media pf-media--auto pf-media--graph"><video src="media/fn_store_icon.mp4" poster="media/fn_store_icon_poster.jpg" autoplay muted loop playsinline controls></video></div><figcaption class="pf-figcap">Store item icon</figcaption></figure>
+                    <figure><div class="pf-media pf-media--auto pf-media--graph"><video src="media/fn_back_to_top.mp4" poster="media/fn_back_to_top_poster.jpg" autoplay muted loop playsinline controls></video></div><figcaption class="pf-figcap">Locker back-to-top button</figcaption></figure>
+                </div>
+            </article>
+            <!-- ===== NOTREALCOMBAT ===== -->
+            <article class="pf-case" id="notrealcombat">
+                <div class="pf-case__head pf-case__head--stack">
+                    <span class="pf-kicker">Unreal Marketplace Plugin &middot; Self-published &middot; 2019&ndash;2020</span>
+                    <h3 class="pf-case__title">NotRealCombat</h3>
+                </div>
+                <div class="pf-case__body">
+                    <div><span class="pf-case__label">What it is</span><p>A combat framework for Unreal Engine 4, sold on the Unreal Marketplace. The project that opened the door to AAA work.</p></div>
+                    <div><span class="pf-case__label">Features</span>
+                        <ul>
+                            <li>Attack combos, dodging, blocking and target lock.</li>
+                            <li>Jump and double jump, knockback and knockdown.</li>
+                            <li>Enemy AI and arena events.</li>
+                            <li>Destructible objects, doors and keys, collectibles and camera setups.</li>
+                            <li>Multiplayer programming.</li>
+                        </ul>
+                    </div>
+                    <div><span class="pf-case__label">What I did</span><p>Programming, combat design, animation and rigging, level design tools, client support and version updates.</p></div>
+                    <div class="pf-tags"><span class="pf-tag pf-tag--sm">Unreal Engine 4</span><span class="pf-tag pf-tag--sm">Blueprints</span><span class="pf-tag pf-tag--sm">Combat Design</span><span class="pf-tag pf-tag--sm">Multiplayer</span></div>
+                </div>
+                <div class="pf-case__media">
+                    <figure><div class="pf-media"><video src="media/notrealcombat.mp4" poster="media/notrealcombat_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">Showcase level</figcaption></figure>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="pf-section pf-contact">
+        <div class="pf-wrap">
+            <span class="pf-kicker">Contact</span>
+            <h2 class="pf-h2">Let's talk</h2>
+            <p class="pf-lead">Brasília, Brazil (UTC&minus;3) &middot; Fully remote</p>
+            <div class="pf-cta">
+                <a href="mailto:notrealvitor@gmail.com" class="cta-button">notrealvitor@gmail.com</a>
+                <a href="https://www.linkedin.com/in/notrealvitor/" target="_blank" rel="noopener" class="cta-button cta-secondary">LinkedIn</a>
+                <a href="Vitor_Silvestre_CV.pdf" target="_blank" rel="noopener" class="cta-button cta-secondary">Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="pf-footer">&copy; 2026 Vitor Silvestre &middot; <a href="../">Devilest Studio</a></footer>
+    <script src="../js/navigation.js?v=20260926-1"></script>
+    <script src="../js/animations.js?v=20260926-1"></script>
+</body>
+</html>

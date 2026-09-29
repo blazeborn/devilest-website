@@ -34,7 +34,8 @@ const cssFiles = [
     { src: 'css/components/hero.css', dest: 'dist/css/components/hero.min.css' },
     { src: 'css/components/about.css', dest: 'dist/css/components/about.min.css' },
     { src: 'css/components/project.css', dest: 'dist/css/components/project.min.css' },
-    { src: 'css/components/contact.css', dest: 'dist/css/components/contact.min.css' }
+    { src: 'css/components/contact.css', dest: 'dist/css/components/contact.min.css' },
+    { src: 'css/components/portfolio.css', dest: 'dist/css/components/portfolio.min.css' }
 ];
 
 // JS files to minify
@@ -96,6 +97,18 @@ indexContent = indexContent.replace(/src="js\/([^"?]+)\.js(\?[^"]*)?"/g, 'src="j
 fs.writeFileSync('dist/index.html', indexContent);
 console.log('  ✓ Created dist/index.html');
 
+// Portfolio page (/portfolio/): same minified-reference swap, with ../ paths.
+if (fs.existsSync('portfolio/index.html')) {
+    if (!fs.existsSync('dist/portfolio')) {
+        fs.mkdirSync('dist/portfolio', { recursive: true });
+    }
+    let portfolioContent = fs.readFileSync('portfolio/index.html', 'utf8');
+    portfolioContent = portfolioContent.replace(/href="([^"?]+)\.css(\?[^"]*)?"/g, 'href="$1.min.css$2"');
+    portfolioContent = portfolioContent.replace(/src="\.\.\/js\/([^"?]+)\.js(\?[^"]*)?"/g, 'src="../js/$1.min.js$2"');
+    fs.writeFileSync('dist/portfolio/index.html', portfolioContent);
+    console.log('  ✓ Created dist/portfolio/index.html');
+}
+
 console.log('\n📊 Build Statistics:');
 console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
@@ -143,6 +156,14 @@ try {
     
     copyRecursive('Projects', 'dist/Projects');
     console.log('  ✓ Copied Projects/');
+
+    // Portfolio assets (media/, CV pdf, ...). index.html was already written above.
+    if (fs.existsSync('portfolio')) {
+        fs.readdirSync('portfolio')
+            .filter(f => f !== 'index.html')
+            .forEach(f => copyRecursive(path.join('portfolio', f), path.join('dist/portfolio', f)));
+        console.log('  ✓ Copied portfolio/ assets');
+    }
 } catch (error) {
     console.error('  ✗ Error copying files:', error.message);
 }
