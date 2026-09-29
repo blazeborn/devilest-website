@@ -955,3 +955,101 @@
     font-size: 0.72rem;
     margin-top: 0.15rem;
 }
+
+/* Clickable text reads as clickable: boxed links */
+.pf .pf-index__main,
+.pf .pf-index__subs a {
+    display: inline-block;
+    border: 1px solid var(--pf-line);
+    padding: 0.3rem 0.6rem;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.pf .pf-index__main {
+    border-color: var(--pf-red);
+    justify-self: start;
+}
+
+.pf .pf-index__subs a:hover,
+.pf .pf-index__main:hover {
+    border-color: var(--pf-red);
+}
+
+.pf-index__subs {
+    gap: 0.4rem;
+}
+
+.pf-footer a {
+    border: 1px solid var(--pf-line);
+    padding: 0.15rem 0.45rem;
+}
+
+/* Back to top */
+.pf .pf-totop {
+    display: inline-block;
+    margin-top: var(--spacing-md);
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--pf-red);
+    color: var(--pf-cream);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    font-weight: var(--font-bold);
+    text-decoration: none;
+}
+
+.pf .pf-totop:hover {
+    background: var(--pf-red);
+    color: var(--pf-cream);
+    text-decoration: none;
+}
+
+/* Flow steps: plain black boxes, no border */
+.pf-flow li {
+    border: 0;
+}
+
+/* Tags read as labels, not buttons: plain text separated by dots */
+.pf .pf-tags {
+    gap: 0.2rem 0;
+}
+
+.pf .pf-tag {
+    border: 0;
+    background: none;
+    padding: 0;
+    color: var(--pf-muted);
+}
+
+.pf .pf-tag + .pf-tag::before {
+    content: "·";
+    margin: 0 0.6rem;
+    color: var(--pf-red);
+}
+
+/* Mobile: center photo, name and subtitles */
+@media (max-width: 768px) {
+    .pf-hero__id {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.pf-case > .pf-totop {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-top: 0;
+}
+
+/* Status labels in the same plain style as tags */
+.pf .pf-status {
+    border: 0;
+    padding: 0;
+}
+
+.pf .pf-status::before {
+    content: "●";
+    margin-right: 0.35rem;
+    font-size: 0.6rem;
+    vertical-align: 0.1em;
+}
