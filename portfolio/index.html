@@ -55,6 +55,8 @@
                         <a href="#case-combat">Combat</a>
                         <a href="#case-systems">Progression</a>
                         <a href="#case-world">World</a>
+                        <a href="#case-ui">UI</a>
+                        <a href="#case-pipeline">Pipeline</a>
                     </div>
                 </div>
                 <div class="pf-index__group">
@@ -214,6 +216,75 @@
                     <figure><div class="pf-media pf-media--auto pf-media--graph"><video src="media/nl_map_overview.mp4" poster="media/nl_map_overview_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">Map in the editor with PCG volumes and World Partition</figcaption></figure>
                     <figure><div class="pf-media pf-media--auto"><video src="media/nl_pcg_generations.mp4" poster="media/nl_pcg_generations_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">PCG regenerating an area</figcaption></figure>
                     <figure><div class="pf-media pf-media--auto pf-media--graph"><video src="media/nl_pcg_graph.mp4" poster="media/nl_pcg_graph_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">PCG graph with the custom Blueprint spawner</figcaption></figure>
+                </div>
+                <a href="#top" class="pf-totop">&uarr; Back to top</a>
+            </article>
+
+            <!-- ===== CASE 4: UI ===== -->
+            <article class="pf-case" id="case-ui">
+                <div class="pf-case__head">
+                    <h3 class="pf-case__title">UI: MVVM &amp; Controller-First Input</h3>
+                    <span class="pf-status pf-status--live">Live</span>
+                </div>
+                <div class="pf-case__body">
+                    <div><span class="pf-case__label">Goal</span><p>Simple, scalable UI for dozens of enemies and hundreds of cards, working across platforms on both mouse/keyboard and gamepad.</p></div>
+                    <div><span class="pf-case__label">Problem</span><p>Keeping a growing roster of enemies and cards in sync with the UI, easy to debug, without rebuilding widgets for every new addition or input device.</p></div>
+                    <div><span class="pf-case__label">Solution</span>
+                        <ul>
+                            <li><strong>Seamless input switching.</strong> CommonUI detects the active input device, and button prompts, focus and tooltips swap between gamepad and mouse and keyboard instantly, mid-screen.</li>
+                            <li><strong>Controller-first navigation.</strong> Menus are CommonUI activatable widgets with focus navigation, and UI actions are bound through Enhanced Input, so the action bar (use, drop, close, navigate) comes from data instead of being hardcoded per screen.</li>
+                            <li><strong>Data separated from presentation.</strong> The player's status ViewModel is registered globally, so the HUD, character status and inventory all bind to the same instance. Enemies reuse that ViewModel class, created manually per enemy for their health bars.</li>
+                            <li><strong>Deck builder.</strong> Its own ViewModel manages decks and selection, and a virtualized TileView keeps 200+ cards smooth.</li>
+                        </ul>
+                    </div>
+                    <div><span class="pf-case__label">Result</span><p>Gameplay classes don't need to reference widgets directly, and the ViewModel works as a reliable, organized data source. New enemies and cards use the existing UI without extra code, and UI bugs are traced to a single place. CommonUI handles input routing, focus and platform prompts across devices.</p></div>
+                    <div><span class="pf-case__label pf-case__label--next">Next</span><p>Localization pass on UI texts, with text overflow checks.</p></div>
+                    <div class="pf-tags"><span class="pf-tag pf-tag--sm">MVVM</span><span class="pf-tag pf-tag--sm">CommonUI</span><span class="pf-tag pf-tag--sm">UMG</span><span class="pf-tag pf-tag--sm">Enhanced Input</span></div>
+                </div>
+                <div class="pf-case__media">
+                    <figure><div class="pf-media pf-media--auto"><video src="media/nl_ui_input_switch.mp4" poster="media/nl_ui_input_switch_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">Gamepad and mouse switching in the inventory: prompts, focus and tooltips update instantly</figcaption></figure>
+                    <figure><div class="pf-media pf-media--auto"><video src="media/nl_ui_mvvm_bindings.mp4" poster="media/nl_ui_mvvm_bindings_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">CharacterStatusVM shared by player and enemies: global for the player HUD, set manually on each enemy bar</figcaption></figure>
+                    <figure><div class="pf-media pf-media--auto"><video src="media/nl_ui_mvvm_cards.mp4" poster="media/nl_ui_mvvm_cards_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">Deck builder: TileView items bound to DeckBuilderVM, each card entry reading its own selected and owned state</figcaption></figure>
+                </div>
+                <a href="#top" class="pf-totop">&uarr; Back to top</a>
+            </article>
+
+            <!-- ===== CASE 5: DEVELOPMENT PIPELINE ===== -->
+            <article class="pf-case" id="case-pipeline">
+                <div class="pf-case__head">
+                    <h3 class="pf-case__title">Development Pipeline</h3>
+                    <span class="pf-status pf-status--live">Live</span>
+                </div>
+                <div class="pf-case__body">
+                    <div><span class="pf-case__label">Goal</span><p>A large-scale project that stays performant and maintainable as content grows.</p></div>
+                    <div><span class="pf-case__label">Problem</span><p>A large procedurally generated world kept loaded, dozens of enemies on screen at once, hundreds of generated items and modern UE5 rendering, all maintained by a single developer.</p></div>
+                    <div><span class="pf-case__label">Solution</span>
+                    <ul>
+                        <li><strong>Load dependencies.</strong> Heavy Blueprints are referenced through native C++ parent classes and soft references, so each asset loads only what it uses. The player Blueprint dropped from <strong>1.1 GiB to 211 MiB</strong> of load dependencies.</li>
+                        <li><strong>Performance &amp; profiling.</strong> Unreal Insights traces to find bottlenecks, then fix them at the source: expensive actor ticks, Niagara culling by distance, texture memory reduction.</li>
+                        <li><strong>Modular architecture.</strong>
+                            <ul>
+                                <li>Subsystems for global services (item generation, spawn director, loading screen, save).</li>
+                                <li>Characters built from components (inventory, card management, music).</li>
+                                <li>Data-driven content: enemies, items, affixes and movesets tuned in tables, no code needed.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Development environment.</strong>
+                            <ul>
+                                <li>Self-hosted Perforce on a dedicated machine, accessible from anywhere through a secure zero-trust tunnel.</li>
+                                <li>Engine-level changes such as version upgrades go through a separate branch as a safeguard, stabilized there and then merged into the main line.</li>
+                            </ul>
+                        </li>
+                        <li><strong>AI-assisted development.</strong> Built with an LLM (Claude) as a pair-programming partner for debugging, code review and research. Every change is carefully designed and reviewed by me before submit.</li>
+                        <li><strong>Expanded native Unreal systems.</strong> C++ foundations extended in Blueprints on top of GAS (abilities, effects, custom damage execution), MVVM and CommonUI, Enhanced Input and PCG.</li>
+                    </ul>
+                    </div>
+                    <div><span class="pf-case__label">Result</span><p>Stable playtest builds after more than a year of solo development, with <strong>~19,000 lines of C++</strong> across <strong>170+ submitted Perforce changelists</strong>. Dozens of enemies, hundreds of card modifiers and thousands of possible items, and more to come with minimal rework, thanks to the modular, data-driven setup.</p></div>
+                    <div class="pf-tags"><span class="pf-tag pf-tag--sm">C++</span><span class="pf-tag pf-tag--sm">Unreal Insights</span><span class="pf-tag pf-tag--sm">Size Map</span><span class="pf-tag pf-tag--sm">Perforce</span></div>
+                </div>
+                <div class="pf-case__media">
+                    <figure><div class="pf-media pf-media--auto"><video src="media/nl_sizemap_compare.mp4" poster="media/nl_sizemap_compare_poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video></div><figcaption class="pf-figcap">Player Blueprint Size Map, before and after: 81% smaller</figcaption></figure>
+                    <figure><div class="pf-media pf-media--auto pf-media--graph"><img src="media/nl_insights_trace.jpg" alt="Unreal Insights timing trace" loading="lazy"></div><figcaption class="pf-figcap">Unreal Insights timing trace during a profiling pass</figcaption></figure>
                 </div>
                 <a href="#top" class="pf-totop">&uarr; Back to top</a>
             </article>
